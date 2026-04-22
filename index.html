@@ -207,6 +207,35 @@ nav {
     opacity: 0.85;
     letter-spacing: 0.5px;
 }
+    /* ================= BADGES ================= */
+    .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    backdrop-filter: blur(6px);
+}
+
+/* SPECIAL EXTREME VERSION */
+.extreme-badge {
+    background: #8b0000;
+    border-color: #ff3d00;
+    color: white;
+    box-shadow: 0 0 12px rgba(255, 61, 0, 0.5);
+    animation: pulseExtreme 2s infinite;
+}
+
+@keyframes pulseExtreme {
+    0%   { transform: scale(1); box-shadow: 0 0 8px rgba(255,61,0,0.4); }
+    50%  { transform: scale(1.05); box-shadow: 0 0 16px rgba(255,61,0,0.7); }
+    100% { transform: scale(1); box-shadow: 0 0 8px rgba(255,61,0,0.4); }
+}
 /* ================= COLORS ================= */
 .jalapeno { --accent: #2e8b57; }
 .fresno   { --accent: #ff4d4d; }
@@ -357,6 +386,7 @@ nav {
   </div>
 
   <div class="product-card ghost">
+      <div class="badge extreme-badge">Most Extreme</div>
     <h3>Ghost</h3>
       <div class="heat-label">Heat: 8/10</div>
     <div class="heat-meter">
