@@ -7,196 +7,204 @@
 
 <style>
 body {
-  margin: 0;
-  background: #000;
-  color: white;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
 }
 
-/* NAV */
+/* ================= NAV ================= */
 nav {
-  position: sticky;
-  top: 0;
-  background: rgba(0,0,0,0.9);
-  z-index: 1000;
+    position: sticky;
+    top: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
 }
 
 .nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
 }
 
 .nav-logo img {
-  height: 40px;
-  cursor: pointer;
+    height: 40px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
 }
 
 /* BUTTONS */
 .find-us-btn {
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-  cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #ff3d00;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
-.find-us-btn:hover {
-  background: #ff3d00;
-  box-shadow: 0 0 12px #ff3d00;
-}
-
-/* IG BUTTON */
 .ig-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  text-decoration: none;
-  background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
-  color: white;
-}
-
-.ig-icon {
-  width: 18px;
-  height: 18px;
-  fill: white;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 /* HERO */
 .hero {
-  padding: 120px 20px;
-  text-align: center;
-  background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
-  url('images/hero.jpg.JPG') center/cover;
+    padding: 120px 20px;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+    url('images/hero.jpg.JPG') center/cover;
 }
 
 /* PRODUCTS */
 .products-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
 }
 
 .product-card {
-  --accent: #fff;
-  width: 240px;
-  border: 2px solid var(--accent);
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
+    width: 240px;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 16px;
+    text-align: center;
 }
 
-.product-card:hover {
-  box-shadow: 0 0 20px var(--accent);
-  transform: translateY(-6px);
-}
-
-/* HEAT */
-.heat-meter {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-}
-
-.pepper { opacity: 0.2; }
-.pepper.active {
-  opacity: 1;
-  color: var(--accent);
-}
-
-/* COLORS */
-.jalapeno { --accent:#2e8b57; }
-.fresno { --accent:#ff4d4d; }
-.thai { --accent:#39ff14; }
-.habanero { --accent:#ff8c00; }
-.ghost { --accent:#8b0000; }
-
-/* BUTTONS */
-.btn-premium {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-accent {
-  background: var(--accent);
-  color: white;
-}
-
-/* MODAL (FULL IMAGE FIX) */
+/* MODAL */
 .modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
-  background: #111;
-  padding: 20px;
-  border-radius: 16px;
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
+    background: #111;
+    padding: 20px;
+    border-radius: 16px;
+    max-width: 400px;
+    text-align: center;
 }
 
 .modal-image {
-  width: 100%;
-  max-height: 60vh;
-  object-fit: contain; /* ✅ NO CROPPING */
-  border-radius: 12px;
-  margin-bottom: 12px;
+    width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
 
 .close-btn {
-  margin-top: 12px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  background: #ff3d00;
-  color: white;
-  border: none;
-  cursor: pointer;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: #ff3d00;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div id="nav-placeholder"></div>
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="nav-container">
 
+    <div class="nav-logo" onclick="openLogo()">
+      <img src="images/logo2.JPG" alt="Logo">
+    </div>
+
+    <button class="find-us-btn" onclick="openMarket()">📍 Find Us</button>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#products">Sauces</a>
+      <a href="about.html">About</a>
+
+      <a href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank" class="ig-btn">
+        Instagram
+      </a>
+
+      <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">
+        Etsy
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
 <section class="hero">
   <h1>Bad Cat Hot Sauce</h1>
 </section>
 
-<section class="products-grid">
+<!-- ================= PRODUCTS ================= -->
+<section id="products">
 
-<!-- JALAPENO -->
-<div class="product-card jalapeno">
-<h3>Jalapeño</h3>
-<div class="heat-meter">
-<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-</div>
-<button class="btn-premium btn-accent"
-onclick="openProduct('Jalapeño','Fresh bright heat','images/jalapeno.jpeg')">
-View
-</button>
+<div class="products-grid">
+
+  <div class="product-card">
+    <h3>Jalapeño</h3>
+    <button onclick="openProduct('Jalapeño','Fresh heat','images/jalapeno.jpeg')">
+      View Sauce
+    </button>
+  </div>
+
+  <div class="product-card">
+    <h3>Fresno</h3>
+    <button onclick="openProduct('Fresno','Sweet heat','images/fresno.jpeg')">
+      View Sauce
+    </button>
+  </div>
+
+  <div class="product-card">
+    <h3>Thai Chili</h3>
+    <button onclick="openProduct('Thai Chili','Sharp heat','images/thai.jpeg')">
+      View Sauce
+    </button>
+  </div>
+
+  <div class="product-card">
+    <h3>Habanero</h3>
+    <button onclick="openProduct('Habanero','Fruity heat','images/habanero.jpeg')">
+      View Sauce
+    </button>
+  </div>
+
+  <div class="product-card">
+    <h3>Ghost</h3>
+    <button onclick="openProduct('Ghost','Extreme heat','images/ghost.jpeg')">
+      View Sauce
+    </button>
+  </div>
+
 </div>
 
-<!-- repeat pattern for others -->
 </section>
 
-<!-- MODAL -->
+<!-- ================= MODAL ================= -->
 <div id="modal" class="modal" onclick="closeModal(event)">
   <div class="modal-content">
 
@@ -206,6 +214,7 @@ View
     <p id="modalDesc"></p>
 
     <button class="close-btn" onclick="closeModal()">Close</button>
+
   </div>
 </div>
 
@@ -223,31 +232,16 @@ function openProduct(t,d,i){
 }
 
 function openLogo(){
-  openProduct(
-    "Bad Cat Hot Sauce",
-    "Small batch fermented hot sauce from Taos, NM.",
-    "images/logo2.JPG"
-  );
+  openProduct("Bad Cat Hot Sauce","Small batch hot sauce","images/logo2.JPG");
 }
 
 function openMarket(){
-  openProduct(
-    "Find Us",
-    "Taos Farmers Market 8am–1pm\nSanta Fe Farmers Market 8am–1pm",
-    "images/market.png"
-  );
+  openProduct("Find Us","Taos + Santa Fe Farmers Markets","images/market.png");
 }
 
 function closeModal(e){
   if(!e || e.target===modal) modal.style.display="none";
 }
-
-/* LOAD NAV */
-fetch("nav.html")
-  .then(r=>r.text())
-  .then(data=>{
-    document.getElementById("nav-placeholder").innerHTML=data;
-  });
 </script>
 
 </body>
