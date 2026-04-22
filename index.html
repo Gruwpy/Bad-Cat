@@ -47,17 +47,6 @@ body.fade-in .page-fade { opacity: 0; }
     align-items: center;
     z-index: 9999;
 }
-
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
 .modal-content {
     background: #111;
     padding: 20px;
@@ -65,7 +54,6 @@ body.fade-in .page-fade { opacity: 0; }
     max-width: 400px;
     text-align: center;
     color: black;
-    position: relative;
 }
 .modal-content {
     width: 90%;
@@ -73,18 +61,11 @@ body.fade-in .page-fade { opacity: 0; }
     max-height: 80vh;
     overflow-y: auto;
     position: relative;
-    <button onclick="modal.style.display='none'" 
-        style="margin-top:10px;padding:10px 20px;border:none;border-radius:999px;background:#ff3d00;color:white;">
-    Close
-</button>
 }
 .modal-content img {
     width: 100%;
     border-radius: 12px;
     margin-bottom: 10px;
-}
-.close {
-    padding: 8px;
 }
 .close {
     position: absolute;
@@ -93,6 +74,7 @@ body.fade-in .page-fade { opacity: 0; }
     font-size: 26px;
     cursor: pointer;
     z-index: 10;
+    padding: 8px;
 }
 /* ================= HERO ================= */
 .hero {
@@ -423,7 +405,6 @@ nav {
                 <span class="pepper active">🌶️</span>
                 <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
             </div>
-
             <div>8/10</div>
             <div class="price">$12</div>
             <a href="product/ghost.html" class="btn-premium btn-accent"></a>
@@ -489,6 +470,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <img id="modalImage" src="" alt="Product Image">
         <h2 id="modalTitle"></h2>
         <p id="modalDesc"></p>
+        <button onclick="modal.style.display='none'" 
+        style="margin-top:10px;padding:10px 20px;border:none;border-radius:999px;background:#ff3d00;color:white;">
+        Close
+    </button>
     </div>
 </div>
 
