@@ -13,7 +13,42 @@ body {
     color: white;
     font-family: Arial, sans-serif;
 }
+/* ================= MOBILE VIEW ================= */
+    html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+@media (max-width: 600px) {
+    .product-card {
+        width: 90%;
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
 /* ================= NAV ================= */
 nav {
     position: sticky;
@@ -489,7 +524,7 @@ function openProduct(t,d,i){
   modal.style.display="flex";
   img.src=i;
   title.textContent=t;
- desc.innerHTML = d;
+  desc.innerHTML=d;
 }
 
 function openLogo(){
@@ -511,38 +546,6 @@ function openMarket(){
 
 function closeModal(e){
   if(!e || e.target===modal) modal.style.display="none";
-}
-    html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-    img {
-    max-width: 100%;
-    height: auto;
-}
-    .products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 40px 20px;
-}
-
-@media (max-width: 600px) {
-    .product-card {
-        width: 90%;
-    }
-}
-    @media (max-width: 700px) {
-    .nav-container {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 }
 </script>
 
