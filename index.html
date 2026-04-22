@@ -74,21 +74,46 @@ nav {
     transform: translateY(-2px);
 }
 
-/* INSTAGRAM */
-.ig-btn {
+.social-btn {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+
     padding: 8px 14px;
     border-radius: 999px;
+
     text-decoration: none;
-    background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+    font-size: 0.9rem;
+
+    transition: 0.25s ease;
     color: white;
+}
+
+/* INSTAGRAM */
+.ig-btn {
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
 }
 
 .ig-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 14px rgba(221,42,123,0.5);
+    box-shadow: 0 0 14px rgba(221, 42, 123, 0.5);
+}
+
+/* ETSY */
+.etsy-btn {
+    background: #f1641e;
+}
+
+.etsy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(241, 100, 30, 0.5);
+}
+
+/* ICONS */
+.social-icon {
+    width: 18px;
+    height: 18px;
+    fill: white;
 }
 
 /* ================= HERO ================= */
@@ -224,11 +249,29 @@ nav {
       <a href="#products">Sauces</a>
       <a href="about.html">About</a>
 
-      <a class="ig-btn" href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank">
-        📷 Instagram
-      </a>
+      <a href="https://www.instagram.com/bad_cat_hot_sauce/"
+   target="_blank"
+   class="social-btn ig-btn">
 
-      <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">Etsy</a>
+<svg class="social-icon" viewBox="0 0 24 24">
+    <path d="M7.8 2h8.4C19.9 2 22 4.1 22 6.8v8.4c0 2.7-2.1 4.8-4.8 4.8H7.8C5.1 20 3 17.9 3 15.2V6.8C3 4.1 5.1 2 7.8 2zm0 2C6.2 4 5 5.2 5 6.8v8.4C5 16.8 6.2 18 7.8 18h8.4c1.6 0 2.8-1.2 2.8-2.8V6.8C19 5.2 17.8 4 16.2 4H7.8z"/>
+    <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
+    <circle cx="17.5" cy="6.5" r="1.2"/>
+</svg>
+
+<span>Instagram</span>
+</a>
+
+     <a href="https://www.etsy.com/shop/BadCatHotSauce"
+   target="_blank"
+   class="social-btn etsy-btn">
+
+<svg class="social-icon" viewBox="0 0 24 24">
+    <path d="M4 3h16v3H7v5h10v3H7v6h13v3H4V3z"/>
+</svg>
+
+<span>Etsy</span>
+</a>
     </div>
 
   </div>
