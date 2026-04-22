@@ -6,194 +6,35 @@
 <title>Bad Cat Hot Sauce</title>
 
 <style>
-/* ================= PAGE TRANSITION ================= */
+/* ===================== GLOBAL ===================== */
+:root { --accent: #ff3d00; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* ===================== PAGE TRANSITION ===================== */
 .page-fade {
     position: fixed;
     inset: 0;
-    background: #000000;
+    background: #000;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
     z-index: 9999;
 }
-
 body.fade-out .page-fade { opacity: 1; }
 body.fade-in .page-fade { opacity: 0; }
 
-:root {
-    --accent: #ff3d00;
-}
-    html, body {
-    margin: 0;
-    padding: 0;
-    background-color: #000000;
-    color: white;
-}
-    .nav-logo img {
-    height: 40px;
-    width: auto;
-    display: block;
-}
-    .nav-logo {
-    display: flex;
-    align-items: center;
-}
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-.modal-content {
-    background: #111;
-    padding: 20px;
-    border-radius: 16px;
-
-    width: 90%;
-    max-width: 400px;
-    max-height: 80vh;
-
-    overflow-y: auto;
-    position: relative;
-
-    text-align: center;
-    color: white; /* changed from black so text is visible on dark bg */
-}
-.modal-content .btn-premium {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-}
-.modal-content img {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 10px;
-}
-.close {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 10;
-    padding: 8px;
-}
-/* ================= HERO ================= */
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-                url('images/hero.jpg.JPG') no-repeat center/cover;
-    color: white;
-    padding: 120px 20px;
-    text-align: center;
-}
-
-.hero h2 { font-size: 3rem; margin-bottom: 10px; }
-.hero p { font-size: 1.2rem; opacity: 0.9; }
-
-/* ================= BUTTON ================= */
-.btn-premium {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 26px;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-/* ================= PRODUCTS ================= */
-#products {
-    background: #111;
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.heat-legend { margin-top: 10px; opacity: 0.8; }
-
-.products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.product-card {
-    --accent: #fff;
-    border: 2px solid var(--accent);
-    border-radius: 16px;
-    padding: 20px;
-    width: 260px;
-    background: rgba(255,255,255,0.05);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 30px var(--accent);
-}
-
-.badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--accent);
-    color: white;
-    font-size: 0.7rem;
-    padding: 4px 8px;
-    border-radius: 999px;
-}
-
-.price {
-    margin-top: 8px;
-    font-weight: bold;
-    opacity: 0.9;
-}
-
-/* ================= HEAT METER ================= */
-.heat-meter {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
-    margin: 12px 0;
-}
-
-.pepper { font-size: 1rem; opacity: 0.2; }
-
-.pepper.active {
-    opacity: 1;
-    color: var(--accent);
-    text-shadow: 0 0 6px var(--accent);
-}
-
-/* ================= COLOR SYSTEM ================= */
-.jalapeno { --accent: #2e8b57; }
-.fresno   { --accent: #ff4d4d; }
-.thai     { --accent: #39ff14; }
-.habanero { --accent: #ff8c00; }
-.ghost    { --accent: #8b0000; }
-
-.btn-accent {
-    background: var(--accent);
-    color: white;
-}
-
-.btn-accent:hover {
-    box-shadow: 0 0 20px var(--accent);
-    transform: translateY(-3px);
-}
-
-/* ================= NAV ================= */
-html { scroll-behavior: smooth; }
-
+/* ===================== NAV ===================== */
 nav {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10000;
     background: rgba(0,0,0,0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -203,338 +44,268 @@ nav {
     max-width: 1100px;
     margin: auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
 }
 
-.nav-links {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-left: auto;
-}
+.nav-logo img { height: 40px; cursor: pointer; }
 
-.nav-links a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    position: relative;
-}
-    nav {
-    position: sticky;
-    top: 0;
-    z-index: 10000;
-}
-
-.nav-links a:hover { color: white; }
-
-.nav-links a.active {
-    color: white;
-}
-
-.nav-links a.active::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #ff3d00;
-    box-shadow: 0 0 8px #ff3d00;
-}.find-us-btn {
+.find-us-btn {
     margin-left: 15px;
     padding: 8px 16px;
     border-radius: 999px;
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.2);
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: 0.3s;
 }
 
-.find-us-btn:hover {
-    background: #ff3d00;
-    border-color: #ff3d00;
-    box-shadow: 0 0 12px #ff3d00;
+.nav-links {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
 }
-    
+
+.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.nav-links a:hover { color: white; }
+
+/* ===================== HERO ===================== */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('images/hero.jpg.JPG') center/cover no-repeat;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+/* ===================== PRODUCTS ===================== */
+#products { padding: 60px 20px; background:#111; text-align:center; }
+
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card {
+    --accent: #fff;
+    border: 2px solid var(--accent);
+    border-radius: 16px;
+    padding: 20px;
+    width: 260px;
+    background: rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px var(--accent);
+}
+
+/* heat meter */
+.heat-meter {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:4px;
+    margin:10px 0;
+}
+.pepper { opacity:0.2; }
+.pepper.active {
+    opacity:1;
+    color:var(--accent);
+    text-shadow:0 0 6px var(--accent);
+}
+
+/* colors */
+.jalapeno { --accent:#2e8b57; }
+.fresno { --accent:#ff4d4d; }
+.thai { --accent:#39ff14; }
+.habanero { --accent:#ff8c00; }
+.ghost { --accent:#8b0000; }
+
+/* ===================== BUTTONS ===================== */
+.btn-premium {
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 22px;
+    border-radius:999px;
+    text-decoration:none;
+    transition:0.3s;
+}
+.btn-accent {
+    background:var(--accent);
+    color:white;
+}
+.btn-accent:hover {
+    box-shadow:0 0 15px var(--accent);
+    transform:translateY(-2px);
+}
+
+/* ===================== MODAL ===================== */
+.modal {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal-content {
+    background:#111;
+    padding:20px;
+    border-radius:16px;
+    width:90%;
+    max-width:400px;
+    text-align:center;
+    position:relative;
+}
+
+.modal-content img { width:100%; border-radius:12px; }
+.close {
+    position:absolute;
+    top:10px;
+    right:12px;
+    font-size:24px;
+    cursor:pointer;
+}
 </style>
 </head>
 
 <body>
-
 <div class="page-fade"></div>
 
+<!-- NAV -->
 <nav>
-    <div class="nav-container">
-
-        <div class="nav-logo" onclick="openLogo()">
-    <img src="images/logo2.JPG" alt="Bad Cat Logo" style="height:40px; cursor:pointer;">
+<div class="nav-container">
+<div class="nav-logo" onclick="openLogo()">
+<img src="images/logo2.JPG">
 </div>
-<a href="javascript:void(0)" 
-   onclick="openMarket()"
-   class="find-us-btn">
-   📍 Find Us
-</a>
-        <div class="nav-links">
-            <a href="#top" class="nav-link active">Home</a>
-            <a href="#products" class="nav-link">Sauces</a>
-            <a href="about.html" class="nav-link">About</a>
-<a href="https://www.instagram.com/bad_cat_hot_sauce/"
-   target="_blank"
-   style="display:flex;align-items:center;gap:6px;color:#E1306C;text-decoration:none;">
-   
-   <!-- Instagram Icon -->
-   <svg width="20" height="20" viewBox="0 0 24 24" fill="#E1306C" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.5 5.5 0 0 0 12 7.5zm0 2A3.5 3.5 0 1 1 8.5 13 3.5 3.5 0 0 1 12 9.5zm4.8-.9a1.2 1.2 0 1 0-1.2-1.2 1.2 1.2 0 0 0 1.2 1.2z"/>
-   </svg>
 
-   <span style="font-size:0.9rem;">Instagram</span>
-</a>
-            <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">
-                Etsy
-            </a>
-        </div>
+<a href="#" onclick="openMarket()" class="find-us-btn">📍 Find Us</a>
 
-    </div>
-</nav>
+<div class="nav-links">
+<a href="#top">Home</a>
+<a href="#products">Sauces</a>
+<a href="about.html">About</a>
+<a href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank">Instagram</a>
+<a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">Etsy</a>
+</div>
+</div>
 </nav>
 
 <!-- HERO -->
 <section id="top" class="hero">
-    <h2>Bad Cat Hot Sauce</h2>
-    <p>Small batch hot sauces. Big flavor.</p>
-    
+<h2>Bad Cat Hot Sauce</h2>
+<p>Small batch hot sauces. Big flavor.</p>
 </section>
 
 <!-- PRODUCTS -->
 <section id="products">
-    <h2>Our Sauces</h2>
-    <div class="heat-legend">Heat Scale: 1 → 10</div>
+<h2>Our Sauces</h2>
 
-    <div class="products-grid">
+<div class="products-grid">
 
-        <!-- JALAPENO -->
-        <div class="product-card jalapeno">
-            <h3>Jalapeño</h3>
-            <p>Fresh, bright heat</p>
-
-            <div class="heat-meter">
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span>
-            </div>
-
-            <div>3/10</div>
-            <div class="price">$12</div>
-           <a href="javascript:void(0)" 
-   onclick="openProduct(
-     'Jalapeño Sauce',
-     'Fresh, bright heat with fermented depth.',
-     'images/jalapeno.jpeg'
-   )"
-   class="btn-premium btn-accent">
-   View Sauce
-</a>
-        </div>
-
-        <!-- FRESNO -->
-        <div class="product-card fresno">
-            <h3>Fresno</h3>
-            <p>Smooth, slightly sweet heat</p>
-
-            <div class="heat-meter">
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-            </div>
-
-            <div>4/10</div>
-            <div class="price">$12</div>
-             <a href="javascript:void(0)" 
-   onclick="openProduct(
-     'Fresno Sauce',
-     'Smooth, slightly sweet heat',
-     'images/fresno.jpeg'
-   )"
-   class="btn-premium btn-accent">
-   View Sauce
-</a>
+<!-- JALAPENO -->
+<div class="product-card jalapeno">
+<h3>Jalapeño</h3>
+<p>Fresh, bright heat</p>
+<div class="heat-meter">
+<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+<span class="pepper">🌶️</span>
 </div>
-        <!-- THAI -->
-        <div class="product-card thai">
-            <h3>Thai Chili</h3>
-            <p>Sharp, fast heat</p>
+<a href="#" onclick="openProduct('Jalapeño','Fresh bright heat','images/jalapeno.jpeg')" class="btn-premium btn-accent">View</a>
+</div>
 
-            <div class="heat-meter">
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span>
-            </div>
+<!-- FRESNO -->
+<div class="product-card fresno">
+<h3>Fresno</h3>
+<p>Smooth, slightly sweet</p>
+<div class="heat-meter">
+<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+</div>
+<a href="#" onclick="openProduct('Fresno','Smooth sweet heat','images/fresno.jpeg')" class="btn-premium btn-accent">View</a>
+</div>
 
-            <div>5/10</div>
-            <div class="price">$12</div>
-            <a href="javascript:void(0)" 
-   onclick="openProduct(
-     'Thai-Chili Sauce',
-     'Sharp, fast heat',
-     'images/thai.jpeg'
-   )"
-   class="btn-premium btn-accent">
-   View Sauce
-</a>
-        </div>
+<!-- THAI -->
+<div class="product-card thai">
+<h3>Thai Chili</h3>
+<p>Sharp, fast heat</p>
+<div class="heat-meter">
+<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+<span class="pepper">🌶️</span>
+</div>
+<a href="#" onclick="openProduct('Thai Chili','Fast sharp heat','images/thai.jpeg')" class="btn-premium btn-accent">View</a>
+</div>
 
-        <!-- HABANERO -->
-        <div class="product-card habanero">
-            <h3>Habanero</h3>
-            <p>Fruity, intense heat</p>
+<!-- HABANERO -->
+<div class="product-card habanero">
+<h3>Habanero</h3>
+<p>Fruity, intense</p>
+<div class="heat-meter">
+<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+</div>
+<a href="#" onclick="openProduct('Habanero','Fruity intense heat','images/habanero.jpeg')" class="btn-premium btn-accent">View</a>
+</div>
 
-            <div class="heat-meter">
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span>
-            </div>
+<!-- GHOST -->
+<div class="product-card ghost">
+<h3>Ghost</h3>
+<p>Extreme heat</p>
+<div class="heat-meter">
+<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+</div>
+<a href="#" onclick="openProduct('Ghost','Extreme lingering heat','images/ghost.jpeg')" class="btn-premium btn-accent">View</a>
+</div>
 
-            <div>7/10</div>
-            <div class="price">$12</div>
-                 <a href="javascript:void(0)" 
-   onclick="openProduct(
-     'Habanero Sauce',
-     'Fruity, intense heat',
-     'images/habanero.jpeg'
-   )"
-   class="btn-premium btn-accent">
-   View Sauce
-</a>
-        </div>
+</div>
+</section>
 
-        <!-- GHOST -->
-        <div class="product-card ghost">
-            <div class="badge">Most Extreme</div>
-            <h3>Ghost</h3>
-            <p>Extreme, lingering heat</p>
-
-            <div class="heat-meter">
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-            </div>
-            <div>8/10</div>
-            <div class="price">$12</div>
-            <a href="product/ghost.html" class="btn-premium btn-accent"></a>
-        </div>
-
-    </div>
-
-<script>
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-link");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-    });
-});
-</script>
-<script>
-function openLogo() {
-    openProduct(
-        "Bad Cat Hot Sauce",
-        "Small-batch fermented hot sauce from Taos, New Mexico. Built for bold flavor and serious heat.",
-        "images/logo2.JPG"
-    );
-}
-    
-function openMarket() {
-    openProduct(
-        "Find Bad Cat 🔥",
-        "Catch us at the Taos Farmers Market!Saturdays⏰ 8AM – 1PM📍",
-        "We're also at the Santa Fe Farmers Market!Saturdays⏰ 8AM – 1PM📍",
-        "images/market.jpg"
-    );
-}
-</script>
-</script>
-    
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("fade-in");
-
-    document.querySelectorAll("a[href]").forEach(link => {
-        const href = link.getAttribute("href");
-
-        if (href && !href.startsWith("#") && !href.startsWith("http")) {
-            link.addEventListener("click", e => {
-                e.preventDefault();
-                document.body.classList.add("fade-out");
-
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 300);
-            });
-        }
-    });
-});
-</script>
+<!-- MODAL -->
 <div id="productModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <img id="modalImage" src="" alt="Product Image">
-        <h2 id="modalTitle"></h2>
-        <p id="modalDesc"></p>
-        <button onclick="modal.style.display='none'" class="btn-premium btn-accent">
-    Close
-</button>
-    
-    </div>
+<div class="modal-content">
+<span class="close" onclick="closeModal()">&times;</span>
+<img id="modalImage">
+<h2 id="modalTitle"></h2>
+<p id="modalDesc"></p>
+<button onclick="closeModal()" class="btn-premium btn-accent">Close</button>
+</div>
 </div>
 
-    <script>
+<!-- SCRIPTS -->
+<script>
 const modal = document.getElementById("productModal");
 const modalImg = document.getElementById("modalImage");
 const modalTitle = document.getElementById("modalTitle");
 const modalDesc = document.getElementById("modalDesc");
-const closeBtn = document.querySelector(".close");
 
 function openProduct(name, desc, img) {
-    modal.style.display = "flex";
-    modalImg.src = img;
-    modalTitle.textContent = name;
-    modalDesc.textContent = desc;
+modal.style.display = "flex";
+modalImg.src = img;
+modalTitle.textContent = name;
+modalDesc.textContent = desc;
 }
-        
-closeBtn.onclick = () => {
-    modal.style.display = "none";
-};
-        
-window.onclick = (e) => {
-    if (e.target === modal) {
-        modal.style.display = "none";
-    }
-};
+
+function closeModal() { modal.style.display = "none"; }
+
+function openLogo() {
+openProduct("Bad Cat Hot Sauce","Small-batch heat","images/logo2.JPG");
+}
+
+function openMarket() {
+openProduct("Find Us","Saturdays • Taos Farmers Market • 8AM–1PM","images/market.jpg");
+}
+
+window.onclick = (e) => { if (e.target === modal) closeModal(); };
 </script>
+
 </body>
 </html>
