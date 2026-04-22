@@ -64,7 +64,8 @@ nav {
 .hero {
     padding: 120px 20px;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('images/hero.jpg') center/cover;
+    /* FIX: ensure correct path + visible overlay */
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('images/hero.jpg.JPG') no-repeat center/cover;
 }
 
 /* ================= PRODUCTS ================= */
@@ -89,6 +90,28 @@ nav {
 .product-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 0 25px var(--accent);
+}
+
+/* BUTTONS (FIX: restore colored bubble buttons) */
+.btn-premium {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-accent {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--accent);
 }
 
 /* ================= HEAT METER ================= */
@@ -215,7 +238,7 @@ nav {
 <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
 <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
 </div>
-<button onclick="openProduct('Jalapeño','Fresh bright heat','images/jalapeno.jpeg')">View</button>
+<button class="btn-premium btn-accent" onclick="openProduct('Jalapeño','Fresh bright heat','images/jalapeno.jpeg')">View Sauce</button>
 </div>
 
 <!-- FRESNO -->
@@ -225,7 +248,7 @@ nav {
 <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
 <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
 </div>
-<button onclick="openProduct('Fresno','Sweet heat','images/fresno.jpeg')">View</button>
+<button class="btn-premium btn-accent" onclick="openProduct('Fresno','Sweet heat','images/fresno.jpeg')">View Sauce</button>
 </div>
 
 <!-- THAI -->
@@ -235,7 +258,7 @@ nav {
 <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
 <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
 </div>
-<button onclick="openProduct('Thai Chili','Sharp fast heat','images/thai.jpeg')">View</button>
+<button class="btn-premium btn-accent" onclick="openProduct('Thai Chili','Sharp fast heat','images/thai.jpeg')">View Sauce</button>
 </div>
 
 <!-- HABANERO -->
@@ -245,7 +268,7 @@ nav {
 <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
 <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
 </div>
-<button onclick="openProduct('Habanero','Fruity intense heat','images/habanero.jpeg')">View</button>
+<button class="btn-premium btn-accent" onclick="openProduct('Habanero','Fruity intense heat','images/habanero.jpeg')">View Sauce</button>
 </div>
 
 <!-- GHOST -->
@@ -255,7 +278,7 @@ nav {
 <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
 <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
 </div>
-<button onclick="openProduct('Ghost','Extreme heat','images/ghost.jpeg')">View</button>
+<button class="btn-premium btn-accent" onclick="openProduct('Ghost','Extreme heat','images/ghost.jpeg')">View Sauce</button>
 </div>
 
 </div>
