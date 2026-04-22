@@ -238,7 +238,24 @@ nav {
     height: 2px;
     background: #ff3d00;
     box-shadow: 0 0 8px #ff3d00;
+}.find-us-btn {
+    margin-left: 15px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
 }
+
+.find-us-btn:hover {
+    background: #ff3d00;
+    border-color: #ff3d00;
+    box-shadow: 0 0 12px #ff3d00;
+}
+    
 </style>
 </head>
 
@@ -252,7 +269,11 @@ nav {
         <div class="nav-logo" onclick="openLogo()">
     <img src="images/logo2.JPG" alt="Bad Cat Logo" style="height:40px; cursor:pointer;">
 </div>
-
+<a href="javascript:void(0)" 
+   onclick="openMarket()"
+   class="find-us-btn">
+   📍 Find Us
+</a>
         <div class="nav-links">
             <a href="#top" class="nav-link active">Home</a>
             <a href="#products" class="nav-link">Sauces</a>
@@ -443,6 +464,15 @@ function openLogo() {
         "images/logo2.JPG"
     );
 }
+    <script>
+function openMarket() {
+    openProduct(
+        "Find Bad Cat 🔥",
+        "Catch us at the Taos Farmers Market!\n\n🗓 Saturdays\n⏰ 8AM – 1PM\n📍 Taos Plaza\n\nCome try samples, grab fresh bottles, and say hi.",
+        "images/market.jpg"
+    );
+}
+</script>
 </script>
     
 <script>
