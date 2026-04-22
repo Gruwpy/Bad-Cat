@@ -159,7 +159,11 @@ nav {
     border-radius: 16px;
     overflow: hidden;
 }
-
+.modal-content img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain; /* KEY FIX: shows full logo instead of cropping */
+}
 .modal-bg {
     position: absolute;
     inset: 0;
@@ -311,8 +315,16 @@ function openProduct(name,desc,img){
     modalBg.style.backgroundImage=`url(${img})`;
 }
 
-function openLogo(){
-    openProduct('Bad Cat Hot Sauce','Small batch fire','images/logo2.JPG');
+function openLogo() {
+    modal.style.display = "flex";
+
+    modalImg.src = "images/logo2.JPG";
+
+    modalTitle.textContent = "Bad Cat Hot Sauce";
+    modalDesc.innerHTML = "Small-batch fermented hot sauce from Taos, New Mexico.<br>Built for bold flavor and serious heat.";
+
+    modalImg.style.maxHeight = "300px";
+    modalImg.style.objectFit = "contain";
 }
 
 function openMarket(){
