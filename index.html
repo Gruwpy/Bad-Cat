@@ -29,10 +29,7 @@ nav {
     padding: 15px 20px;
 }
 
-.nav-logo img {
-    height: 40px;
-    cursor: pointer;
-}
+.nav-logo img { height: 40px; cursor: pointer; }
 
 .nav-links {
     display: flex;
@@ -40,12 +37,8 @@ nav {
     align-items: center;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-}
+.nav-links a { color: white; text-decoration: none; }
 
-/* Instagram styling */
 .instagram-link {
     display: flex;
     align-items: center;
@@ -53,9 +46,7 @@ nav {
     color: #E1306C;
 }
 
-/* Find Us button */
 .find-us-btn {
-    margin-left: 15px;
     padding: 8px 16px;
     border-radius: 999px;
     background: rgba(255,255,255,0.1);
@@ -66,6 +57,7 @@ nav {
 
 .find-us-btn:hover {
     background: #ff3d00;
+    box-shadow: 0 0 10px #ff3d00;
 }
 
 /* ================= HERO ================= */
@@ -85,20 +77,45 @@ nav {
 }
 
 .product-card {
-    border: 2px solid #fff;
+    --accent: #fff;
+    border: 2px solid var(--accent);
     padding: 20px;
     border-radius: 16px;
     width: 240px;
     text-align: center;
+    transition: 0.3s;
 }
 
-.heat-meter span {
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px var(--accent);
+}
+
+/* ================= HEAT METER ================= */
+.heat-meter {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin: 10px 0;
+}
+
+.pepper {
     opacity: 0.2;
+    transition: 0.3s;
 }
 
-.heat-meter .active {
+.pepper.active {
     opacity: 1;
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent);
 }
+
+/* ================= FLAVOR COLORS ================= */
+.jalapeno { --accent: #2e8b57; }
+.fresno   { --accent: #ff4d4d; }
+.thai     { --accent: #39ff14; }
+.habanero { --accent: #ff8c00; }
+.ghost    { --accent: #8b0000; }
 
 /* ================= MODAL ================= */
 .modal {
@@ -118,7 +135,6 @@ nav {
     padding: 20px;
     border-radius: 16px;
     overflow: hidden;
-    color: white;
 }
 
 .modal-bg {
@@ -127,7 +143,6 @@ nav {
     background-size: cover;
     background-position: center;
     opacity: 0.35;
-    z-index: 0;
 }
 
 .modal-inner {
@@ -161,85 +176,123 @@ nav {
 
 <body>
 
+<!-- ================= NAVBAR ================= -->
 <nav>
-    <div class="nav-container">
-        <div class="nav-logo" onclick="openLogo()">
-            <img src="images/logo2.JPG">
-        </div>
-
-        <button class="find-us-btn" onclick="openMarket()">📍 Find Us</button>
-
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#products">Sauces</a>
-            <a href="#">About</a>
-
-            <a href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank" class="instagram-link">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="#E1306C">
-                    <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7z"/>
-                </svg>
-                Instagram
-            </a>
-
-            <a href="https://www.etsy.com">Etsy</a>
-        </div>
+<div class="nav-container">
+    <div class="nav-logo" onclick="openLogo()">
+        <img src="images/logo2.JPG">
     </div>
+
+    <button class="find-us-btn" onclick="openMarket()">📍 Find Us</button>
+
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#products">Sauces</a>
+        <a href="#">About</a>
+
+        <a href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank" class="instagram-link">
+            Instagram
+        </a>
+
+        <a href="https://www.etsy.com">Etsy</a>
+    </div>
+</div>
 </nav>
 
+<!-- ================= HERO ================= -->
 <section class="hero">
     <h1>Bad Cat Hot Sauce</h1>
 </section>
 
+<!-- ================= PRODUCTS ================= -->
 <section id="products">
-    <div class="products-grid">
+<div class="products-grid">
 
-        <div class="product-card">
-            <h3>Jalapeño</h3>
-            <div class="heat-meter">🌶️🌶️🌶️</div>
-            <button onclick="openProduct('Jalapeño','Fresh heat','images/jalapeno.jpeg')">View</button>
-        </div>
-
-        <div class="product-card">
-            <h3>Fresno</h3>
-            <div class="heat-meter">🌶️🌶️🌶️🌶️</div>
-            <button onclick="openProduct('Fresno','Sweet heat','images/fresno.jpeg')">View</button>
-        </div>
-
-    </div>
-</section>
-
-<!-- MODAL -->
-<div id="productModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-bg" id="modalBg"></div>
-
-        <div class="modal-inner">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <p id="modalDesc"></p>
-            <button class="close-btn" onclick="closeModal()">Close</button>
-        </div>
-    </div>
+<!-- JALAPENO -->
+<div class="product-card jalapeno">
+<h3>Jalapeño</h3>
+<div class="heat-meter">
+<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+</div>
+<button onclick="openProduct('Jalapeño','Fresh bright heat','images/jalapeno.jpeg')">View</button>
 </div>
 
-<script>
-const modal = document.getElementById('productModal');
-const modalTitle = document.getElementById('modalTitle');
-const modalDesc = document.getElementById('modalDesc');
-const modalBg = document.getElementById('modalBg');
+<!-- FRESNO -->
+<div class="product-card fresno">
+<h3>Fresno</h3>
+<div class="heat-meter">
+<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+</div>
+<button onclick="openProduct('Fresno','Sweet heat','images/fresno.jpeg')">View</button>
+</div>
 
-function openProduct(name, desc, img) {
-    modal.style.display = 'flex';
-    modalTitle.textContent = name;
-    modalDesc.textContent = desc;
-    modalBg.style.backgroundImage = `url(${img})`;
+<!-- THAI -->
+<div class="product-card thai">
+<h3>Thai Chili</h3>
+<div class="heat-meter">
+<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+</div>
+<button onclick="openProduct('Thai Chili','Sharp fast heat','images/thai.jpeg')">View</button>
+</div>
+
+<!-- HABANERO -->
+<div class="product-card habanero">
+<h3>Habanero</h3>
+<div class="heat-meter">
+<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+</div>
+<button onclick="openProduct('Habanero','Fruity intense heat','images/habanero.jpeg')">View</button>
+</div>
+
+<!-- GHOST -->
+<div class="product-card ghost">
+<h3>Ghost</h3>
+<div class="heat-meter">
+<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+</div>
+<button onclick="openProduct('Ghost','Extreme heat','images/ghost.jpeg')">View</button>
+</div>
+
+</div>
+</section>
+
+<!-- ================= MODAL ================= -->
+<div id="productModal" class="modal">
+<div class="modal-content">
+<div class="modal-bg" id="modalBg"></div>
+<div class="modal-inner">
+<span class="close" onclick="closeModal()">&times;</span>
+<h2 id="modalTitle"></h2>
+<p id="modalDesc"></p>
+<button class="close-btn" onclick="closeModal()">Close</button>
+</div>
+</div>
+</div>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+const modal=document.getElementById('productModal');
+const modalTitle=document.getElementById('modalTitle');
+const modalDesc=document.getElementById('modalDesc');
+const modalBg=document.getElementById('modalBg');
+
+function openProduct(name,desc,img){
+    modal.style.display='flex';
+    modalTitle.textContent=name;
+    modalDesc.textContent=desc;
+    modalBg.style.backgroundImage=`url(${img})`;
 }
 
-function openLogo() {
+function openLogo(){
     openProduct('Bad Cat Hot Sauce','Small batch fire','images/logo2.JPG');
 }
 
-function openMarket() {
+function openMarket(){
     openProduct(
         'Find Us',
         'Catch us at the Taos Farmers Market! 8am-1pm!\nWe\'re also at the Santa Fe Farmers Market! 8am-1pm!',
@@ -247,13 +300,9 @@ function openMarket() {
     );
 }
 
-function closeModal() {
-    modal.style.display = 'none';
-}
+function closeModal(){ modal.style.display='none'; }
 
-window.onclick = function(e) {
-    if (e.target === modal) closeModal();
-}
+window.onclick = e => { if(e.target===modal) closeModal(); };
 </script>
 
 </body>
