@@ -3,215 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About | Bad Cat Hot Sauce</title>
+<title>About</title>
 
 <style>
-
-/* ================= GLOBAL ================= */
 body {
-    margin: 0;
-    background: #000;
-    color: white;
-    font-family: Arial, sans-serif;
+  margin:0;
+  background:#0b0b0b;
+  color:white;
+  font-family:Arial;
 }
 
-/* ================= NAV (MATCH INDEX STYLE) ================= */
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 20px;
-    background: rgba(0,0,0,0.9);
-}
-
-.nav-logo img {
-    height: 40px;
-    cursor: pointer;
-}
-
-.nav-links {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-}
-
-/* Instagram button */
-.ig-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
-    color: white;
-    text-decoration: none;
-}
-
-/* Instagram icon */
-.ig-icon {
-    width: 18px;
-    height: 18px;
-    fill: white;
-}
-
-/* Find Us button */
-.find-us-btn {
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.1);
-    color: white;
-    cursor: pointer;
-}
-
-.find-us-btn:hover {
-    background: #ff3d00;
-    box-shadow: 0 0 10px #ff3d00;
-}
-
-/* ================= HERO ================= */
-.hero {
-    padding: 100px 20px;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-                url('images/hero.jpg.JPG') center/cover;
-}
-
-.hero h1 {
-    font-size: 3rem;
-}
-
-/* ================= CONTENT ================= */
 .content {
-    max-width: 800px;
-    margin: auto;
-    padding: 60px 20px;
-    line-height: 1.7;
+  max-width:800px;
+  margin:auto;
+  padding:60px 20px;
 }
-
-/* ================= MODAL (optional consistency support) ================= */
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.modal-content {
-    background: #111;
-    padding: 20px;
-    border-radius: 16px;
-    max-width: 420px;
-    width: 90%;
-    text-align: center;
-}
-
-.close-btn {
-    margin-top: 15px;
-    padding: 10px 18px;
-    border-radius: 999px;
-    background: #ff3d00;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAV (MATCH INDEX STRUCTURE) ================= -->
-<nav>
-  <div class="nav-container">
+<div id="nav-placeholder"></div>
 
-    <div class="nav-logo" onclick="openLogo()">
-      <img src="images/logo2.JPG" alt="Bad Cat Logo">
-    </div>
-
-    <button class="find-us-btn" onclick="openMarket()">
-      📍 Find Us
-    </button>
-
-    <div class="nav-links">
-
-      <a href="index.html">Home</a>
-      <a href="index.html#products">Sauces</a>
-      <a href="about.html">About</a>
-
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/bad_cat_hot_sauce/"
-         target="_blank"
-         class="ig-btn">
-
-        <svg class="ig-icon" viewBox="0 0 24 24">
-          <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7z"/>
-        </svg>
-
-        Instagram
-      </a>
-
-    </div>
-  </div>
-</nav>
-
-<!-- ================= HERO ================= -->
-<section class="hero">
-    <h1>About Bad Cat Hot Sauce</h1>
-</section>
-
-<!-- ================= CONTENT ================= -->
 <section class="content">
-    <p>
-        Bad Cat Hot Sauce was born from a fiery passion for bold flavors, adorable cats, and a love for the art of fermentation. Based in the heart of Taos, New Mexico, we craft small-batch hot sauces that are as unique as the stunning landscapes that inspire us.
-
-    </p>
-
-    <p>
-        Our journey began with a vision: to create a product that elevates meals, excites taste buds, and embodies the spirit of the weird little mountain town of Taos. Every bottle of Bad Cat Hot Sauce is lovingly made with high-quality ingredients, a dash of creativity, and a whole lot of spice. We take pride in our traditional fermentation process, which gives our sauces their rich, complex flavors.
-
-    </p>
-
-    <p>
-        At Bad Cat, we believe in supporting local farmers, embracing sustainable practices, and giving back to the vibrant community that welcomed us with open arms. Whether you’re a heat enthusiast or a flavor explorer, our sauces are crafted to bring joy to your table—and maybe a little sweat to your brow.
-
-From our kitchen in Taos to tables across the country, we’re here to make your meals purr with personality. After all, life’s too short for bland food. Stay spicy!
-    </p>
+<h1>About Bad Cat Hot Sauce</h1>
+<p>Small batch fermented hot sauce from Taos, NM...</p>
 </section>
-
-<!-- ================= OPTIONAL MODAL SUPPORT (keeps nav buttons working if used later) ================= -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <h2 id="title"></h2>
-    <p id="desc"></p>
-    <button class="close-btn" onclick="closeModal()">Close</button>
-  </div>
-</div>
 
 <script>
-function openLogo(){
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("title").textContent="Bad Cat Hot Sauce";
-    document.getElementById("desc").textContent="Small-batch fermented hot sauce from Taos, NM.";
-}
-
-function openMarket(){
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("title").textContent="Find Us";
-    document.getElementById("desc").textContent="Taos Farmers Market + Santa Fe Farmers Market • 8AM–1PM";
-}
-
-function closeModal(){
-    document.getElementById("modal").style.display="none";
-}
+fetch("nav.html")
+  .then(r=>r.text())
+  .then(data=>{
+    document.getElementById("nav-placeholder").innerHTML=data;
+  });
 </script>
 
 </body>
