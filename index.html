@@ -431,7 +431,16 @@ window.addEventListener("scroll", () => {
     });
 });
 </script>
-
+<script>
+function openLogo() {
+    openProduct(
+        "Bad Cat Hot Sauce",
+        "Small-batch fermented hot sauce from Taos, New Mexico. Built for bold flavor and serious heat.",
+        "images/logo.png"
+    );
+}
+</script>
+    
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("fade-in");
@@ -460,7 +469,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <p id="modalDesc"></p>
     </div>
 </div>
-</section>
+
     <script>
 const modal = document.getElementById("productModal");
 const modalImg = document.getElementById("modalImage");
@@ -474,19 +483,11 @@ function openProduct(name, desc, img) {
     modalTitle.textContent = name;
     modalDesc.textContent = desc;
 }
-    <script>
-function openLogo() {
-    openProduct(
-        "Bad Cat Hot Sauce",
-        "Small-batch fermented hot sauce from Taos, New Mexico. Built on bold flavor, high-quality ingredients, and a love for heat that actually means something.",
-        "images/logo.webp"
-    );
-}
-
+        
 closeBtn.onclick = () => {
     modal.style.display = "none";
 };
-
+        
 window.onclick = (e) => {
     if (e.target === modal) {
         modal.style.display = "none";
