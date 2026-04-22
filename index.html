@@ -464,7 +464,7 @@ function openLogo() {
         "images/logo2.JPG"
     );
 }
-    <script>
+    
 function openMarket() {
     openProduct(
         "Find Bad Cat 🔥",
@@ -501,7 +501,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <img id="modalImage" src="" alt="Product Image">
         <h2 id="modalTitle"></h2>
         <p id="modalDesc"></p>
-        <button onclick="modal.style.display='none'" 
+        <button onclick="document.getElementById('productModal').style.display='none'"> 
         style="margin-top:10px;padding:10px 20px;border:none;border-radius:999px;background:#ff3d00;color:white;">
         Close
     </button>
