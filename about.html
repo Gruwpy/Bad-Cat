@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About</title>
+<title>About | Bad Cat Hot Sauce</title>
 
 <style>
+/* ================= GLOBAL ================= */
 body {
     margin: 0;
     background: #0b0b0b;
     color: white;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
 }
 
-/* SAME NAV STYLE */
+/* ================= NAV (MATCH INDEX.HTML) ================= */
 nav {
     position: sticky;
     top: 0;
@@ -28,6 +29,13 @@ nav {
     padding: 15px 20px;
 }
 
+/* LOGO TEXT (kept simple like index logo area) */
+.nav-brand {
+    font-weight: bold;
+    color: white;
+}
+
+/* LINKS */
 .nav-links {
     display: flex;
     gap: 15px;
@@ -37,21 +45,51 @@ nav {
 .nav-links a {
     color: white;
     text-decoration: none;
+    opacity: 0.85;
+    transition: 0.2s ease;
 }
 
+.nav-links a:hover {
+    opacity: 1;
+}
+
+/* INSTAGRAM BUTTON (MATCH INDEX STYLE) */
 .ig-btn {
+    display: inline-flex;
+    align-items: center;
     padding: 8px 14px;
     border-radius: 999px;
+    text-decoration: none;
     background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
     color: white;
-    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.25s ease;
 }
 
-/* CONTENT */
+.ig-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(221,42,123,0.5);
+}
+
+/* ETSY LINK */
+.etsy {
+    color: #f1641e;
+}
+
+/* ================= HERO ================= */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+                url('images/hero.jpg.JPG') center/cover;
+}
+
+/* ================= CONTENT ================= */
 .content {
     max-width: 800px;
     margin: auto;
     padding: 60px 20px;
+    line-height: 1.7;
 }
 </style>
 </head>
@@ -62,18 +100,18 @@ nav {
 <nav>
   <div class="nav-container">
 
-    <div style="font-weight:bold;">Bad Cat 🔥</div>
+    <div class="nav-brand">Bad Cat 🔥</div>
 
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="index.html#products">Sauces</a>
       <a href="about.html">About</a>
 
-      <a href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank" class="ig-btn">
+      <a class="ig-btn" href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank">
         Instagram
       </a>
 
-      <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">
+      <a class="etsy" href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">
         Etsy
       </a>
     </div>
@@ -81,13 +119,26 @@ nav {
   </div>
 </nav>
 
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <h1>About Bad Cat Hot Sauce</h1>
+</section>
+
 <!-- ================= CONTENT ================= -->
 <section class="content">
-  <h1>About Bad Cat Hot Sauce</h1>
 
   <p>
-    Small batch fermented hot sauce made in Taos, New Mexico...
+    Bad Cat Hot Sauce was born from a passion for bold flavors, small-batch fermentation, and the weird energy of Taos, New Mexico.
   </p>
+
+  <p>
+    Every bottle is crafted with care, heat, and a focus on deep flavor—not just spice. We believe hot sauce should enhance food, not overpower it.
+  </p>
+
+  <p>
+    From local farmers markets to your table, Bad Cat is built to bring personality, heat, and a little chaos to every bite.
+  </p>
+
 </section>
 
 </body>
