@@ -337,9 +337,6 @@ nav {
     <div class="modal-inner">
 
       <span class="close" onclick="closeModal()">&times;</span>
-
-      <img id="modalImage" class="modal-image">
-
       <h2 id="modalTitle"></h2>
       <p id="modalDesc"></p>
 
@@ -351,34 +348,44 @@ nav {
 
 <!-- ================= SCRIPTS ================= -->
 <script>
-function openProduct(name,desc,img){
-    modal.style.display='flex';
-    modalTitle.textContent=name;
-    modalDesc.textContent=desc;
-    modalBg.style.backgroundImage=`url(${img})`;
+const modal = document.getElementById("productModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const modalBg = document.getElementById("modalBg");
+
+function openProduct(name, desc, img){
+    modal.style.display = "flex";
+    modalTitle.textContent = name;
+    modalDesc.textContent = desc;
+
+    modalBg.style.backgroundImage = `url(${img})`;
 }
 
 function openLogo() {
-    document.getElementById("productModal").style.display = "flex";
+    modal.style.display = "flex";
 
-    document.getElementById("modalImage").src = "images/logo2.JPG";
-    document.getElementById("modalTitle").textContent = "Bad Cat Hot Sauce";
-    document.getElementById("modalDesc").textContent =
+    modalTitle.textContent = "Bad Cat Hot Sauce";
+    modalDesc.textContent =
         "Small-batch fermented hot sauce from Taos, New Mexico. Built for bold flavor and serious heat.";
+
+    modalBg.style.backgroundImage = "url(images/logo2.JPG)";
 }
 
 function openMarket(){
     openProduct(
-        'Find Us',
-        'Catch us at the Taos Farmers Market! 8am-1pm!
-        'We are also at the Santa Fe Farmers Market! 8am-1pm!',
-        'images/market.png'
+        "Find Us",
+        "Catch us at the Taos Farmers Market! 8am–1pm!\nWe are also at the Santa Fe Farmers Market! 8am–1pm!",
+        "images/market.png"
     );
 }
 
-function closeModal(){ modal.style.display='none'; }
+function closeModal(){
+    modal.style.display = "none";
+}
 
-window.onclick = e => { if(e.target===modal) closeModal(); };
+window.onclick = e => {
+    if(e.target === modal) closeModal();
+};
 </script>
 
 </body>
