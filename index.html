@@ -214,12 +214,18 @@ nav {
     display: flex;
     gap: 20px;
     align-items: center;
+    margin-left: auto;
 }
 
 .nav-links a {
     color: rgba(255,255,255,0.7);
     text-decoration: none;
     position: relative;
+}
+    nav {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
 }
 
 .nav-links a:hover { color: white; }
@@ -246,22 +252,24 @@ nav {
 <div class="page-fade"></div>
 
 <nav>
-    <div class="nav-logo">
-    <img src="images/logo.webp" alt="Bad Cat Hot Sauce Logo">
-</div>
+    <div class="nav-container">
+
+        <div class="nav-logo">
+            <img src="images/logo.png" alt="Bad Cat Logo">
+        </div>
+
         <div class="nav-links">
             <a href="#top" class="nav-link active">Home</a>
             <a href="#products" class="nav-link">Sauces</a>
             <a href="about.html" class="nav-link">About</a>
-            <a href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank">Instagram</a>
 
-            <a href="https://www.etsy.com/shop/BadCatHotSauce"
-               target="_blank"
-               style="display:flex;align-items:center;gap:6px;color:#f1641e;text-decoration:none;">
-                🔶 Etsy
+            <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">
+                Etsy
             </a>
         </div>
+
     </div>
+</nav>
 </nav>
 
 <!-- HERO -->
