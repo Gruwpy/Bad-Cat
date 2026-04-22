@@ -67,20 +67,32 @@ body.fade-in .page-fade { opacity: 0; }
     color: black;
     position: relative;
 }
-
+.modal-content {
+    width: 90%;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    <button onclick="modal.style.display='none'" 
+        style="margin-top:10px;padding:10px 20px;border:none;border-radius:999px;background:#ff3d00;color:white;">
+    Close
+</button>
+}
 .modal-content img {
     width: 100%;
     border-radius: 12px;
     margin-bottom: 10px;
 }
-
+.close {
+    padding: 8px;
+}
 .close {
     position: absolute;
     top: 10px;
-    right: 15px;
-    font-size: 28px;
+    right: 12px;
+    font-size: 26px;
     cursor: pointer;
-    color: black;
+    z-index: 10;
 }
 /* ================= HERO ================= */
 .hero {
