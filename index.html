@@ -49,6 +49,85 @@ img {
         justify-content: center;
     }
 }
+    /* keep layout stable */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+/* hamburger hidden on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* your existing nav-links (desktop stays unchanged) */
+.nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* SOCIAL BUTTONS PRESERVED */
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.social-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* IG gradient stays intact */
+.ig-btn {
+  background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+  color: white;
+}
+
+/* Etsy styling */
+.etsy-btn {
+  background: #f1641e;
+  color: white;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+
+    flex-direction: column;
+    background: rgba(0,0,0,0.95);
+    padding: 12px;
+    border-radius: 12px;
+    min-width: 200px;
+    z-index: 9999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 /* ================= NAV ================= */
 nav {
     position: sticky;
@@ -396,34 +475,40 @@ nav {
 
     <button class="btn find-us-btn" onclick="openMarket()">📍 Find Us</button>
 
-    <div class="nav-links">
+    <!-- NEW: hamburger button -->
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="#products">Sauces</a>
       <a href="about.html">About</a>
 
+      <!-- Instagram -->
       <a href="https://www.instagram.com/bad_cat_hot_sauce/"
-   target="_blank"
-   class="social-btn ig-btn">
+         target="_blank"
+         class="social-btn ig-btn">
 
-<svg class="social-icon" viewBox="0 0 24 24">
-    <path d="M7.8 2h8.4C19.9 2 22 4.1 22 6.8v8.4c0 2.7-2.1 4.8-4.8 4.8H7.8C5.1 20 3 17.9 3 15.2V6.8C3 4.1 5.1 2 7.8 2zm0 2C6.2 4 5 5.2 5 6.8v8.4C5 16.8 6.2 18 7.8 18h8.4c1.6 0 2.8-1.2 2.8-2.8V6.8C19 5.2 17.8 4 16.2 4H7.8z"/>
-    <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
-    <circle cx="17.5" cy="6.5" r="1.2"/>
-</svg>
+        <svg class="social-icon" viewBox="0 0 24 24">
+          <path d="M7.8 2h8.4C19.9 2 22 4.1 22 6.8v8.4c0 2.7-2.1 4.8-4.8 4.8H7.8C5.1 20 3 17.9 3 15.2V6.8C3 4.1 5.1 2 7.8 2zm0 2C6.2 4 5 5.2 5 6.8v8.4C5 16.8 6.2 18 7.8 18h8.4c1.6 0 2.8-1.2 2.8-2.8V6.8C19 5.2 17.8 4 16.2 4H7.8z"/>
+          <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
+          <circle cx="17.5" cy="6.5" r="1.2"/>
+        </svg>
 
-<span>Instagram</span>
-</a>
+        <span>Instagram</span>
+      </a>
 
-     <a href="https://www.etsy.com/shop/BadCatHotSauce"
-   target="_blank"
-   class="social-btn etsy-btn">
+      <!-- Etsy -->
+      <a href="https://www.etsy.com/shop/BadCatHotSauce"
+         target="_blank"
+         class="social-btn etsy-btn">
 
-<svg class="social-icon" viewBox="0 0 24 24">
-    <path d="M4 3h16v3H7v5h10v3H7v6h13v3H4V3z"/>
-</svg>
+        <svg class="social-icon" viewBox="0 0 24 24">
+          <path d="M4 3h16v3H7v5h10v3H7v6h13v3H4V3z"/>
+        </svg>
 
-<span>Etsy</span>
-</a>
+        <span>Etsy</span>
+      </a>
+
     </div>
 
   </div>
@@ -547,6 +632,20 @@ function openMarket(){
 function closeModal(e){
   if(!e || e.target===modal) modal.style.display="none";
 }
+    function toggleMenu() {
+  const links = document.getElementById("navLinks");
+  links.classList.toggle("active");
+}
+
+// optional: close when clicking outside
+document.addEventListener("click", function(e) {
+  const links = document.getElementById("navLinks");
+  const toggle = document.querySelector(".menu-toggle");
+
+  if (!links.contains(e.target) && !toggle.contains(e.target)) {
+    links.classList.remove("active");
+  }
+});
 </script>
 
 </body>
