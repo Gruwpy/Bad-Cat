@@ -7,36 +7,88 @@
 
 <style>
 body {
-  margin:0;
-  background:#0b0b0b;
-  color:white;
-  font-family:Arial;
+    margin: 0;
+    background: #0b0b0b;
+    color: white;
+    font-family: Arial;
 }
 
+/* SAME NAV STYLE */
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.ig-btn {
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+    color: white;
+    text-decoration: none;
+}
+
+/* CONTENT */
 .content {
-  max-width:800px;
-  margin:auto;
-  padding:60px 20px;
+    max-width: 800px;
+    margin: auto;
+    padding: 60px 20px;
 }
 </style>
 </head>
 
 <body>
 
-<div id="nav-placeholder"></div>
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="nav-container">
 
+    <div style="font-weight:bold;">Bad Cat 🔥</div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#products">Sauces</a>
+      <a href="about.html">About</a>
+
+      <a href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank" class="ig-btn">
+        Instagram
+      </a>
+
+      <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">
+        Etsy
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ================= CONTENT ================= -->
 <section class="content">
-<h1>About Bad Cat Hot Sauce</h1>
-<p>Small batch fermented hot sauce from Taos, NM...</p>
-</section>
+  <h1>About Bad Cat Hot Sauce</h1>
 
-<script>
-fetch("nav.html")
-  .then(r=>r.text())
-  .then(data=>{
-    document.getElementById("nav-placeholder").innerHTML=data;
-  });
-</script>
+  <p>
+    Small batch fermented hot sauce made in Taos, New Mexico...
+  </p>
+</section>
 
 </body>
 </html>
