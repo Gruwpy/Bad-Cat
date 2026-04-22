@@ -237,6 +237,31 @@ nav {
 </section>
 
 </body>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+
+    const links = document.querySelectorAll("a[href]");
+
+    links.forEach(link => {
+        const href = link.getAttribute("href");
+
+        // Only apply to internal links
+        if (href && !href.startsWith("#") && !href.startsWith("http")) {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                document.body.classList.remove("fade-in");
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
+        }
+    });
+});
+</script>
 </html>
 
 
