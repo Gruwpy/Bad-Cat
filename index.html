@@ -62,7 +62,10 @@ body.fade-in .page-fade { opacity: 0; }
     text-align: center;
     color: white; /* changed from black so text is visible on dark bg */
 }
-
+.modal-content .btn-premium {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
 .modal-content img {
     width: 100%;
     border-radius: 12px;
@@ -469,7 +472,7 @@ function openMarket() {
     openProduct(
         "Find Bad Cat 🔥",
         "Catch us at the Taos Farmers Market!Saturdays⏰ 8AM – 1PM📍",
-        "We're also at the Santa Fe Farmers Market!Saturdays⏰ 8AM – 1PM📍"
+        "We're also at the Santa Fe Farmers Market!Saturdays⏰ 8AM – 1PM📍",
         "images/market.jpg"
     );
 }
@@ -502,10 +505,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <img id="modalImage" src="" alt="Product Image">
         <h2 id="modalTitle"></h2>
         <p id="modalDesc"></p>
-        <button onclick="document.getElementById('productModal').style.display='none'"> 
-        <style="margin-top:10px;padding:10px 20px;border:none;border-radius:999px;background:#ff3d00;color:white;">
-        Close
-    </button>
+        <button onclick="modal.style.display='none'" class="btn-premium btn-accent">
+    Close
+</button>
+    
     </div>
 </div>
 
