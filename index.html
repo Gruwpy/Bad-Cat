@@ -6,10 +6,6 @@
 <title>Bad Cat Hot Sauce</title>
 
 <style>
-:root {
-    --accent: #ff3d00;
-}
-
 /* ================= PAGE TRANSITION ================= */
 .page-fade {
     position: fixed;
@@ -21,12 +17,11 @@
     z-index: 9999;
 }
 
-body.fade-out .page-fade {
-    opacity: 1;
-}
+body.fade-out .page-fade { opacity: 1; }
+body.fade-in .page-fade { opacity: 0; }
 
-body.fade-in .page-fade {
-    opacity: 0;
+:root {
+    --accent: #ff3d00;
 }
 
 /* ================= HERO ================= */
@@ -38,15 +33,8 @@ body.fade-in .page-fade {
     text-align: center;
 }
 
-.hero h2 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
+.hero h2 { font-size: 3rem; margin-bottom: 10px; }
+.hero p { font-size: 1.2rem; opacity: 0.9; }
 
 /* ================= BUTTON ================= */
 .btn-premium {
@@ -66,6 +54,8 @@ body.fade-in .page-fade {
     text-align: center;
 }
 
+.heat-legend { margin-top: 10px; opacity: 0.8; }
+
 .products-grid {
     display: flex;
     flex-wrap: wrap;
@@ -75,16 +65,70 @@ body.fade-in .page-fade {
 }
 
 .product-card {
+    --accent: #fff;
     border: 2px solid var(--accent);
     border-radius: 16px;
     padding: 20px;
     width: 260px;
     background: rgba(255,255,255,0.05);
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .product-card:hover {
     transform: translateY(-8px);
+    box-shadow: 0 0 30px var(--accent);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 999px;
+}
+
+.price {
+    margin-top: 8px;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+/* ================= HEAT METER ================= */
+.heat-meter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    margin: 12px 0;
+}
+
+.pepper { font-size: 1rem; opacity: 0.2; }
+
+.pepper.active {
+    opacity: 1;
+    color: var(--accent);
+    text-shadow: 0 0 6px var(--accent);
+}
+
+/* ================= COLOR SYSTEM ================= */
+.jalapeno { --accent: #2e8b57; }
+.fresno   { --accent: #ff4d4d; }
+.thai     { --accent: #39ff14; }
+.habanero { --accent: #ff8c00; }
+.ghost    { --accent: #8b0000; }
+
+.btn-accent {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-accent:hover {
+    box-shadow: 0 0 20px var(--accent);
+    transform: translateY(-3px);
 }
 
 /* ================= NAV ================= */
@@ -117,18 +161,24 @@ nav {
 .nav-links a {
     color: rgba(255,255,255,0.7);
     text-decoration: none;
+    position: relative;
 }
 
-.nav-links a:hover {
+.nav-links a:hover { color: white; }
+
+.nav-links a.active {
     color: white;
 }
 
-.etsy {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #f1641e;
-    text-decoration: none;
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ff3d00;
+    box-shadow: 0 0 8px #ff3d00;
 }
 </style>
 </head>
@@ -139,37 +189,151 @@ nav {
 
 <nav>
     <div class="nav-container">
-        <div style="color:white;font-weight:bold;">Bad Cat 🔥</div>
+        <div class="nav-logo" style="color:white;font-weight:bold;">Bad Cat 🔥</div>
 
         <div class="nav-links">
-            <a href="#top">Home</a>
-            <a href="#products">Sauces</a>
-            <a href="about.html">About</a>
+            <a href="#top" class="nav-link active">Home</a>
+            <a href="#products" class="nav-link">Sauces</a>
+            <a href="about.html" class="nav-link">About</a>
 
-            <a class="etsy" href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">
-                🔶 Visit Etsy
+            <a href="https://www.etsy.com/shop/BadCatHotSauce"
+               target="_blank"
+               style="display:flex;align-items:center;gap:6px;color:#f1641e;text-decoration:none;">
+                🔶 Etsy
             </a>
         </div>
     </div>
 </nav>
 
+<!-- HERO -->
 <section id="top" class="hero">
     <h2>Turn Up the Heat</h2>
     <p>Small batch hot sauces. Big flavor.</p>
-    <a href="#products" class="btn-premium">Shop Sauces</a>
+    <a href="#products" class="btn-premium btn-accent">Shop Sauces</a>
 </section>
 
+<!-- PRODUCTS -->
 <section id="products">
     <h2>Our Sauces</h2>
+    <div class="heat-legend">Heat Scale: 1 → 10</div>
 
     <div class="products-grid">
-        <div class="product-card">Jalapeño</div>
-        <div class="product-card">Fresno</div>
-        <div class="product-card">Thai Chili</div>
-        <div class="product-card">Habanero</div>
-        <div class="product-card">Ghost</div>
+
+        <!-- JALAPENO -->
+        <div class="product-card jalapeno">
+            <h3>Jalapeño</h3>
+            <p>Fresh, bright heat</p>
+
+            <div class="heat-meter">
+                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+                <span class="pepper">🌶️</span>
+            </div>
+
+            <div>3/10</div>
+            <div class="price">$8</div>
+            <a href="product/jalapeno.html" class="btn-premium btn-accent">Get the Heat</a>
+        </div>
+
+        <!-- FRESNO -->
+        <div class="product-card fresno">
+            <h3>Fresno</h3>
+            <p>Smooth, slightly sweet heat</p>
+
+            <div class="heat-meter">
+                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+            </div>
+
+            <div>4/10</div>
+            <div class="price">$9</div>
+            <a href="product/fresno.html" class="btn-premium btn-accent">Get the Heat</a>
+        </div>
+
+        <!-- THAI -->
+        <div class="product-card thai">
+            <h3>Thai Chili</h3>
+            <p>Sharp, fast heat</p>
+
+            <div class="heat-meter">
+                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+                <span class="pepper">🌶️</span>
+            </div>
+
+            <div>5/10</div>
+            <div class="price">$10</div>
+            <a href="product/thai.html" class="btn-premium btn-accent">Get the Heat</a>
+        </div>
+
+        <!-- HABANERO -->
+        <div class="product-card habanero">
+            <h3>Habanero</h3>
+            <p>Fruity, intense heat</p>
+
+            <div class="heat-meter">
+                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+                <span class="pepper">🌶️</span>
+            </div>
+
+            <div>7/10</div>
+            <div class="price">$11</div>
+            <a href="product/habanero.html" class="btn-premium btn-accent">Get the Heat</a>
+        </div>
+
+        <!-- GHOST -->
+        <div class="product-card ghost">
+            <div class="badge">Most Extreme</div>
+            <h3>Ghost</h3>
+            <p>Extreme, lingering heat</p>
+
+            <div class="heat-meter">
+                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+                <span class="pepper active">🌶️</span>
+                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+            </div>
+
+            <div>8/10</div>
+            <div class="price">$13</div>
+            <a href="product/ghost.html" class="btn-premium btn-accent">Get the Heat</a>
+        </div>
+
     </div>
 </section>
+
+<script>
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+    });
+});
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
