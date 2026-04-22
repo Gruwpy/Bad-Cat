@@ -6,7 +6,11 @@
 <title>About | Bad Cat Hot Sauce</title>
 
 <style>
-    /* ================= PAGE TRANSITION ================= */
+:root {
+    --accent: #ff3d00;
+}
+
+/* TRANSITION */
 .page-fade {
     position: fixed;
     inset: 0;
@@ -17,20 +21,8 @@
     z-index: 9999;
 }
 
-body.fade-out .page-fade {
-    opacity: 1;
-}
-
-body.fade-in .page-fade {
-    opacity: 0;
-}
-:root {
-    --accent: #ff3d00;
-}
-
-html {
-    scroll-behavior: smooth;
-}
+body.fade-out .page-fade { opacity: 1; }
+body.fade-in .page-fade { opacity: 0; }
 
 body {
     margin: 0;
@@ -39,11 +31,10 @@ body {
     color: white;
 }
 
-/* ================= NAV ================= */
+/* NAV */
 nav {
     position: sticky;
     top: 0;
-    z-index: 1000;
     background: rgba(0,0,0,0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -54,15 +45,7 @@ nav {
     margin: auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 15px 20px;
-}
-
-.nav-logo {
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-decoration: none;
 }
 
 .nav-links {
@@ -74,184 +57,79 @@ nav {
 .nav-links a {
     color: rgba(255,255,255,0.7);
     text-decoration: none;
-    transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: white;
-}
-
-/* Etsy button */
-.etsy-link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: rgba(241,100,30,0.15);
-    border: 1px solid rgba(241,100,30,0.4);
+.etsy {
     color: #f1641e;
 }
 
-.etsy-link:hover {
-    box-shadow: 0 0 12px rgba(241,100,30,0.5);
-}
-
-/* ================= HERO ================= */
+/* HERO */
 .hero {
     text-align: center;
-    padding: 100px 20px 60px;
+    padding: 100px 20px;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-                url('https://via.placeholder.com/1500x600') center/cover no-repeat;
+                url('https://via.placeholder.com/1500x600') center/cover;
 }
 
 .hero h1 {
     font-size: 3rem;
-    margin-bottom: 10px;
 }
 
-.hero p {
-    opacity: 0.85;
-    max-width: 700px;
-    margin: auto;
-    line-height: 1.6;
-}
-
-/* ================= CONTENT ================= */
+/* CONTENT */
 .content {
     max-width: 800px;
     margin: auto;
     padding: 60px 20px;
     line-height: 1.7;
-    opacity: 0.9;
-}
-
-.content h2 {
-    color: var(--accent);
-    margin-top: 40px;
-}
-
-.footer-cta {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 12px 24px;
-    border-radius: 999px;
-    text-decoration: none;
-    background: var(--accent);
-    color: white;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    box-shadow: 0 0 20px var(--accent);
-    transform: translateY(-2px);
 }
 </style>
 </head>
 
 <body>
+
 <div class="page-fade"></div>
+
 <nav>
     <div class="nav-container">
-        <div class="nav-logo">Bad Cat 🔥</div>
+        <div style="color:white;font-weight:bold;">Bad Cat 🔥</div>
 
         <div class="nav-links">
-            <a href="#top" class="nav-link active">Home</a>
-            <a href="#products" class="nav-link">Sauces</a>
-            <a href="./about.html" class="nav-link">About</a>
-
-            <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank" style="margin-left:20px; display:flex; align-items:center; gap:6px; text-decoration:none; color:white;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="#f1641e" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 3h18v4h-2V5H5v14h14v-2h2v4H3V3zm6 6h6v2H9V9zm0 4h6v2H9v-2z"/>
-                </svg>
-                <span style="font-size:0.9rem;">Visit our Etsy</span>
-            </a>
+            <a href="index.html">Home</a>
+            <a href="index.html#products">Sauces</a>
+            <a href="about.html">About</a>
+            <a class="etsy" href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">Etsy</a>
         </div>
     </div>
 </nav>
 
 <section class="hero">
     <h1>About Bad Cat Hot Sauce</h1>
-    <p>Small-batch fermented hot sauce from Taos, New Mexico — built on bold flavor, high-quality ingredients, and a love for heat that actually means something.</p>
 </section>
 
 <section class="content">
-
     <p>
-        Bad Cat Hot Sauce was born from a fiery passion for bold flavors, adorable cats, and the art of fermentation.
-        Based in the heart of Taos, New Mexico, we craft small-batch hot sauces inspired by the landscapes, culture,
-        and slightly weird magic of our mountain town.
+        Bad Cat Hot Sauce, based in Taos, New Mexico, creates small-batch, fermented hot sauces made with high-quality ingredients and bold flavor.
     </p>
 
-    <h2>Our Philosophy</h2>
     <p>
-        We don’t make sauces just to be hot — we make them to taste alive. Every batch is carefully fermented to build
-        depth, complexity, and character before the heat ever hits your tongue.
+        Born from a love of fermentation, cats, and heat, we craft sauces inspired by the landscapes of New Mexico.
     </p>
 
-    <h2>What We Believe</h2>
     <p>
-        We support local farmers, use high-quality ingredients, and embrace sustainable practices wherever possible.
-        Food should have personality — and honestly, so should hot sauce.
+        Every bottle is made in small batches with real ingredients and real character.
     </p>
-
-    <h2>From Taos to Your Table</h2>
-    <p>
-        From our kitchen in New Mexico to tables across the country, Bad Cat Hot Sauce is made to bring flavor,
-        excitement, and a little controlled chaos to your meals.
-    </p>
-
 </section>
 
-<div class="footer-cta">
-    <p>Ready to feel the heat?</p>
-    <a class="btn" href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">Shop on Etsy</a>
-</div>
-
-<!-- ABOUT -->
-<section id="about" style="background:#0b0b0b; color:white; padding:80px 20px; text-align:center;">
-    <h2 style="font-size:2.2rem; margin-bottom:10px;">About Bad Cat Hot Sauce</h2>
-
-    <p style="max-width:750px; margin:0 auto 18px auto; opacity:0.85; line-height:1.7;">
-        Bad Cat Hot Sauce, based in Taos, New Mexico, creates small-batch, fermented hot sauces made with high-quality ingredients and a passion for bold flavor.
-    </p>
-
-    <p style="max-width:750px; margin:0 auto 18px auto; opacity:0.85; line-height:1.7;">
-        Born from a fiery passion for bold flavors, adorable cats, and the art of fermentation, we craft sauces inspired by the landscapes and weird magic of our mountain town.
-    </p>
-
-    <p style="max-width:750px; margin:0 auto 18px auto; opacity:0.85; line-height:1.7;">
-        Every bottle is made in small batches using traditional fermentation techniques, high-quality ingredients, and a whole lot of spice to build deep, complex flavor.
-    </p>
-
-    <p style="max-width:750px; margin:0 auto 30px auto; opacity:0.85; line-height:1.7;">
-        We support local farmers, embrace sustainable practices, and give back to the community that inspires us. From Taos to tables everywhere, we make food purr with personality.
-    </p>
-
-    <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank" class="btn-premium btn-accent">Find us on Etsy</a>
-</section>
-
-</body>
-    <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("fade-in");
 
-    const links = document.querySelectorAll("a[href]");
-
-    links.forEach(link => {
+    document.querySelectorAll("a[href]").forEach(link => {
         const href = link.getAttribute("href");
 
-        // Only apply to internal links
         if (href && !href.startsWith("#") && !href.startsWith("http")) {
-            link.addEventListener("click", (e) => {
+            link.addEventListener("click", e => {
                 e.preventDefault();
-
-                document.body.classList.remove("fade-in");
                 document.body.classList.add("fade-out");
 
                 setTimeout(() => {
@@ -262,6 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+
+</body>
 </html>
-
-
