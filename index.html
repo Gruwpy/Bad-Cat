@@ -6,6 +6,7 @@
 <title>Bad Cat Hot Sauce</title>
 
 <style>
+/* ================= GLOBAL ================= */
 body {
     margin: 0;
     background: #000;
@@ -33,6 +34,7 @@ nav {
     cursor: pointer;
 }
 
+/* LINKS */
 .nav-links {
     display: flex;
     gap: 15px;
@@ -42,29 +44,52 @@ nav {
 .nav-links a {
     color: white;
     text-decoration: none;
+    opacity: 0.85;
 }
 
-/* BUTTONS */
-.find-us-btn {
+.nav-links a:hover {
+    opacity: 1;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
     padding: 8px 14px;
     border-radius: 999px;
-    background: #ff3d00;
     border: none;
-    color: white;
     cursor: pointer;
+    transition: 0.25s ease;
+    font-size: 0.85rem;
 }
 
-.ig-btn {
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+/* FIND US */
+.find-us-btn {
+    background: #ff3d00;
     color: white;
-    text-decoration: none;
+}
+
+.find-us-btn:hover {
+    box-shadow: 0 0 12px #ff3d00;
+    transform: translateY(-2px);
+}
+
+/* INSTAGRAM */
+.ig-btn {
     display: flex;
     align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+    color: white;
 }
 
-/* HERO */
+.ig-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(221,42,123,0.5);
+}
+
+/* ================= HERO ================= */
 .hero {
     padding: 120px 20px;
     text-align: center;
@@ -72,7 +97,7 @@ nav {
     url('images/hero.jpg.JPG') center/cover;
 }
 
-/* PRODUCTS */
+/* ================= PRODUCTS ================= */
 .products-grid {
     display: flex;
     flex-wrap: wrap;
@@ -81,15 +106,66 @@ nav {
     padding: 40px;
 }
 
+/* CARD */
 .product-card {
     width: 240px;
     padding: 20px;
-    border: 2px solid white;
     border-radius: 16px;
     text-align: center;
+    border: 2px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+    transition: 0.3s;
 }
 
-/* MODAL */
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px var(--accent);
+}
+
+/* BUTTON */
+.btn-premium {
+    margin-top: 12px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: var(--accent);
+    color: white;
+    transition: 0.25s ease;
+}
+
+.btn-premium:hover {
+    box-shadow: 0 0 15px var(--accent);
+    transform: translateY(-2px);
+}
+
+/* ================= HEAT METER ================= */
+.heat-meter {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin: 10px 0;
+}
+
+.pepper {
+    opacity: 0.25;
+    transition: 0.3s;
+}
+
+.pepper.active {
+    opacity: 1;
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent);
+}
+
+/* ================= COLORS ================= */
+.jalapeno { --accent: #2e8b57; }
+.fresno   { --accent: #ff4d4d; }
+.thai     { --accent: #39ff14; }
+.habanero { --accent: #ff8c00; }
+.ghost    { --accent: #8b0000; }
+
+/* ================= MODAL ================= */
 .modal {
     display: none;
     position: fixed;
@@ -97,21 +173,24 @@ nav {
     background: rgba(0,0,0,0.85);
     justify-content: center;
     align-items: center;
+    z-index: 9999;
 }
 
 .modal-content {
     background: #111;
     padding: 20px;
     border-radius: 16px;
-    max-width: 400px;
+    max-width: 420px;
+    width: 90%;
     text-align: center;
 }
 
 .modal-image {
     width: 100%;
-    max-height: 60vh;
+    max-height: 320px;
     object-fit: contain;
-    margin-bottom: 10px;
+    border-radius: 12px;
+    margin-bottom: 12px;
 }
 
 .close-btn {
@@ -136,20 +215,18 @@ nav {
       <img src="images/logo2.JPG" alt="Logo">
     </div>
 
-    <button class="find-us-btn" onclick="openMarket()">📍 Find Us</button>
+    <button class="btn find-us-btn" onclick="openMarket()">📍 Find Us</button>
 
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="#products">Sauces</a>
       <a href="about.html">About</a>
 
-      <a href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank" class="ig-btn">
-        Instagram
+      <a class="ig-btn" href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank">
+        📷 Instagram
       </a>
 
-      <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">
-        Etsy
-      </a>
+      <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">Etsy</a>
     </div>
 
   </div>
@@ -165,43 +242,58 @@ nav {
 
 <div class="products-grid">
 
-  <div class="product-card">
+  <div class="product-card jalapeno">
     <h3>Jalapeño</h3>
-    <button onclick="openProduct('Jalapeño','Fresh heat','images/jalapeno.jpeg')">
-      View Sauce
-    </button>
+
+    <div class="heat-meter">
+      <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+      <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+    </div>
+
+    <button class="btn-premium" onclick="openProduct('Jalapeño','Fresh heat','images/jalapeno.jpeg')">View Sauce</button>
   </div>
 
-  <div class="product-card">
+  <div class="product-card fresno">
     <h3>Fresno</h3>
-    <button onclick="openProduct('Fresno','Sweet heat','images/fresno.jpeg')">
-      View Sauce
-    </button>
+    <div class="heat-meter">
+      <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+      <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+    </div>
+
+    <button class="btn-premium" onclick="openProduct('Fresno','Sweet heat','images/fresno.jpeg')">View Sauce</button>
   </div>
 
-  <div class="product-card">
+  <div class="product-card thai">
     <h3>Thai Chili</h3>
-    <button onclick="openProduct('Thai Chili','Sharp heat','images/thai.jpeg')">
-      View Sauce
-    </button>
+    <div class="heat-meter">
+      <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+      <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+    </div>
+
+    <button class="btn-premium" onclick="openProduct('Thai Chili','Sharp heat','images/thai.jpeg')">View Sauce</button>
   </div>
 
-  <div class="product-card">
+  <div class="product-card habanero">
     <h3>Habanero</h3>
-    <button onclick="openProduct('Habanero','Fruity heat','images/habanero.jpeg')">
-      View Sauce
-    </button>
+    <div class="heat-meter">
+      <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+      <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+    </div>
+
+    <button class="btn-premium" onclick="openProduct('Habanero','Fruity heat','images/habanero.jpeg')">View Sauce</button>
   </div>
 
-  <div class="product-card">
+  <div class="product-card ghost">
     <h3>Ghost</h3>
-    <button onclick="openProduct('Ghost','Extreme heat','images/ghost.jpeg')">
-      View Sauce
-    </button>
+    <div class="heat-meter">
+      <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
+      <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
+    </div>
+
+    <button class="btn-premium" onclick="openProduct('Ghost','Extreme heat','images/ghost.jpeg')">View Sauce</button>
   </div>
 
 </div>
-
 </section>
 
 <!-- ================= MODAL ================= -->
@@ -209,7 +301,6 @@ nav {
   <div class="modal-content">
 
     <img id="modalImg" class="modal-image">
-
     <h2 id="modalTitle"></h2>
     <p id="modalDesc"></p>
 
@@ -232,7 +323,7 @@ function openProduct(t,d,i){
 }
 
 function openLogo(){
-  openProduct("Bad Cat Hot Sauce","Small batch hot sauce","images/logo2.JPG");
+  openProduct("Bad Cat","Small batch sauce","images/logo2.JPG");
 }
 
 function openMarket(){
