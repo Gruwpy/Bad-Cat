@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Business Name</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
 
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        nav h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1500x500') no-repeat center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        .services {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 250px;
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        button {
+            background: #ff6600;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #e65c00;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <h1>Your Business</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="shop.html">Shop</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Welcome to Your Business</h2>
+    <p>Your tagline or value proposition goes here.</p>
+    <button onclick="location.href='shop.html'">Shop Now</button>
+</section>
+
+<section id="services" class="container">
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="card">
+            <h3>Service One</h3>
+            <p>Short description of your service.</p>
+        </div>
+        <div class="card">
+            <h3>Service Two</h3>
+            <p>Short description of your service.</p>
+        </div>
+        <div class="card">
+            <h3>Service Three</h3>
+            <p>Short description of your service.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="container">
+    <h2>About Us</h2>
+    <p>Write a short story about your business, your mission, and what makes you unique.</p>
+</section>
+
+<section id="contact" class="container">
+    <h2>Contact</h2>
+    <p>Email: your@email.com</p>
+    <p>Phone: (123) 456-7890</p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Your Business Name</p>
+</footer>
+
+</body>
+</html>
