@@ -254,9 +254,9 @@ nav {
 <nav>
     <div class="nav-container">
 
-        <div class="nav-logo">
-            <img src="images/logo.png" alt="Bad Cat Logo">
-        </div>
+        <div class="nav-logo" onclick="openLogo()">
+    <img src="images/logo.png" alt="Bad Cat Logo" style="height:40px; cursor:pointer;">
+</div>
 
         <div class="nav-links">
             <a href="#top" class="nav-link active">Home</a>
@@ -474,6 +474,15 @@ function openProduct(name, desc, img) {
     modalTitle.textContent = name;
     modalDesc.textContent = desc;
 }
+        <script>
+function openLogo() {
+    openProduct(
+        "Bad Cat Hot Sauce",
+        "Small-batch fermented hot sauce from Taos, New Mexico. Built on bold flavor, high-quality ingredients, and a love for heat that actually means something.",
+        "images/logo.png"
+    );
+}
+</script>
 
 closeBtn.onclick = () => {
     modal.style.display = "none";
