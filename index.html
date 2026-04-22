@@ -184,7 +184,29 @@ nav {
     color: var(--accent);
     text-shadow: 0 0 8px var(--accent);
 }
+.heat-legend {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
 
+.heat-legend h3 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.heat-legend p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+    .heat-label {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
 /* ================= COLORS ================= */
 .jalapeno { --accent: #2e8b57; }
 .fresno   { --accent: #ff4d4d; }
@@ -284,12 +306,15 @@ nav {
 
 <!-- ================= PRODUCTS ================= -->
 <section id="products">
-
+<div class="heat-legend">
+    <h3>Heat Scale</h3>
+    <p>🌶️ 1 (Mild) → 10 (Extreme Heat)</p>
+</div>
 <div class="products-grid">
 
   <div class="product-card jalapeno">
     <h3>Jalapeño</h3>
-
+<div class="heat-label">Heat: 3/10</div>
     <div class="heat-meter">
       <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
       <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
@@ -300,6 +325,7 @@ nav {
 
   <div class="product-card fresno">
     <h3>Fresno</h3>
+      <div class="heat-label">Heat: 4/10</div>
     <div class="heat-meter">
       <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
       <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
@@ -310,6 +336,7 @@ nav {
 
   <div class="product-card thai">
     <h3>Thai Chili</h3>
+      <div class="heat-label">Heat: 5/10</div>
     <div class="heat-meter">
       <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
       <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
@@ -320,6 +347,7 @@ nav {
 
   <div class="product-card habanero">
     <h3>Habanero</h3>
+      <div class="heat-label">Heat: 7/10</div>
     <div class="heat-meter">
       <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
       <span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
@@ -330,6 +358,7 @@ nav {
 
   <div class="product-card ghost">
     <h3>Ghost</h3>
+      <div class="heat-label">Heat: 8/10</div>
     <div class="heat-meter">
       <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
       <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
