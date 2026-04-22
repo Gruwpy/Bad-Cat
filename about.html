@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Bad Cat Hot Sauce</title>
+
+<style>
+:root {
+    --accent: #ff3d00;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: white;
+}
+
+/* ================= NAV ================= */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav-logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* Etsy button */
+.etsy-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(241,100,30,0.15);
+    border: 1px solid rgba(241,100,30,0.4);
+    color: #f1641e;
+}
+
+.etsy-link:hover {
+    box-shadow: 0 0 12px rgba(241,100,30,0.5);
+}
+
+/* ================= HERO ================= */
+.hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+                url('https://via.placeholder.com/1500x600') center/cover no-repeat;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    opacity: 0.85;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+/* ================= CONTENT ================= */
+.content {
+    max-width: 800px;
+    margin: auto;
+    padding: 60px 20px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.content h2 {
+    color: var(--accent);
+    margin-top: 40px;
+}
+
+.footer-cta {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    background: var(--accent);
+    color: white;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    box-shadow: 0 0 20px var(--accent);
+    transform: translateY(-2px);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a class="nav-logo" href="/index.html">Bad Cat 🔥</a>
+
+        <div class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/index.html#products">Sauces</a>
+            <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank" class="etsy-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#f1641e" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 3h18v4h-2V5H5v14h14v-2h2v4H3V3zm6 6h6v2H9V9zm0 4h6v2H9v-2z"/>
+                </svg>
+                Etsy
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>About Bad Cat Hot Sauce</h1>
+    <p>Small-batch fermented hot sauce from Taos, New Mexico — built on bold flavor, high-quality ingredients, and a love for heat that actually means something.</p>
+</section>
+
+<section class="content">
+
+    <p>
+        Bad Cat Hot Sauce was born from a fiery passion for bold flavors, adorable cats, and the art of fermentation.
+        Based in the heart of Taos, New Mexico, we craft small-batch hot sauces inspired by the landscapes, culture,
+        and slightly weird magic of our mountain town.
+    </p>
+
+    <h2>Our Philosophy</h2>
+    <p>
+        We don’t make sauces just to be hot — we make them to taste alive. Every batch is carefully fermented to build
+        depth, complexity, and character before the heat ever hits your tongue.
+    </p>
+
+    <h2>What We Believe</h2>
+    <p>
+        We support local farmers, use high-quality ingredients, and embrace sustainable practices wherever possible.
+        Food should have personality — and honestly, so should hot sauce.
+    </p>
+
+    <h2>From Taos to Your Table</h2>
+    <p>
+        From our kitchen in New Mexico to tables across the country, Bad Cat Hot Sauce is made to bring flavor,
+        excitement, and a little controlled chaos to your meals.
+    </p>
+
+</section>
+
+<div class="footer-cta">
+    <p>Ready to feel the heat?</p>
+    <a class="btn" href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">Shop on Etsy</a>
+</div>
+
+</body>
+</html>
