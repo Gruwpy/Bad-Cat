@@ -190,6 +190,13 @@ nav {
     max-height: 300px;
     object-fit: contain; /* KEY FIX: shows full logo instead of cropping */
 }
+    .modal-image {
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    border-radius: 12px;
+}
 .modal-bg {
     position: absolute;
     inset: 0;
@@ -233,8 +240,8 @@ nav {
 <nav>
 <div class="nav-container">
     <div class="nav-logo" onclick="openLogo()">
-        <img src="images/logo2.JPG">
-    </div>
+    <img src="images/logo2.JPG" alt="Bad Cat Logo">
+</div>
 
     <button class="find-us-btn" onclick="openMarket()">📍 Find Us</button>
 
@@ -323,24 +330,27 @@ nav {
 
 <!-- ================= MODAL ================= -->
 <div id="productModal" class="modal">
-<div class="modal-content">
-<div class="modal-bg" id="modalBg"></div>
-<div class="modal-inner">
-<span class="close" onclick="closeModal()">&times;</span>
-<h2 id="modalTitle"></h2>
-<p id="modalDesc"></p>
-<button class="close-btn" onclick="closeModal()">Close</button>
-</div>
-</div>
+  <div class="modal-content">
+
+    <div class="modal-bg" id="modalBg"></div>
+
+    <div class="modal-inner">
+
+      <span class="close" onclick="closeModal()">&times;</span>
+
+      <img id="modalImage" class="modal-image">
+
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+
+      <button class="close-btn" onclick="closeModal()">Close</button>
+
+    </div>
+  </div>
 </div>
 
 <!-- ================= SCRIPTS ================= -->
 <script>
-const modal=document.getElementById('productModal');
-const modalTitle=document.getElementById('modalTitle');
-const modalDesc=document.getElementById('modalDesc');
-const modalBg=document.getElementById('modalBg');
-
 function openProduct(name,desc,img){
     modal.style.display='flex';
     modalTitle.textContent=name;
@@ -349,21 +359,19 @@ function openProduct(name,desc,img){
 }
 
 function openLogo() {
-    modal.style.display = "flex";
+    document.getElementById("productModal").style.display = "flex";
 
-    modalImg.src = "images/logo2.JPG";
-
-    modalTitle.textContent = "Bad Cat Hot Sauce";
-    modalDesc.innerHTML = "Small-batch fermented hot sauce from Taos, New Mexico.<br>Built for bold flavor and serious heat.";
-
-    modalImg.style.maxHeight = "300px";
-    modalImg.style.objectFit = "contain";
+    document.getElementById("modalImage").src = "images/logo2.JPG";
+    document.getElementById("modalTitle").textContent = "Bad Cat Hot Sauce";
+    document.getElementById("modalDesc").textContent =
+        "Small-batch fermented hot sauce from Taos, New Mexico. Built for bold flavor and serious heat.";
 }
 
 function openMarket(){
     openProduct(
         'Find Us',
-        'Catch us at the Taos Farmers Market! 8am-1pm!\nWe\'re also at the Santa Fe Farmers Market! 8am-1pm!',
+        'Catch us at the Taos Farmers Market! 8am-1pm!
+        'We are also at the Santa Fe Farmers Market! 8am-1pm!',
         'images/market.png'
     );
 }
