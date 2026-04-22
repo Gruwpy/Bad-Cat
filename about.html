@@ -6,6 +6,24 @@
 <title>About | Bad Cat Hot Sauce</title>
 
 <style>
+    /* ================= PAGE TRANSITION ================= */
+.page-fade {
+    position: fixed;
+    inset: 0;
+    background: #0b0b0b;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 9999;
+}
+
+body.fade-out .page-fade {
+    opacity: 1;
+}
+
+body.fade-in .page-fade {
+    opacity: 0;
+}
 :root {
     --accent: #ff3d00;
 }
@@ -137,7 +155,7 @@ nav {
 </head>
 
 <body>
-
+<div class="page-fade"></div>
 <nav>
     <div class="nav-container">
         <div class="nav-logo">Bad Cat 🔥</div>
@@ -220,4 +238,5 @@ nav {
 
 </body>
 </html>
+
 
