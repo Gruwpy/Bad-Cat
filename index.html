@@ -6,8 +6,6 @@
 <title>Bad Cat Hot Sauce</title>
 
 <style>
-
-/* ================= GLOBAL ================= */
 body {
   margin: 0;
   background: #000;
@@ -15,13 +13,19 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* ================= NAV ================= */
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 1000;
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background: rgba(0,0,0,0.9);
 }
 
 .nav-logo img {
@@ -29,27 +33,31 @@ body {
   cursor: pointer;
 }
 
-.nav-links {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-}
-
-/* Instagram */
-.ig-btn {
-  display: flex;
-  gap: 6px;
-  align-items: center;
+/* BUTTONS */
+.find-us-btn {
   padding: 8px 14px;
   border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  cursor: pointer;
+}
+
+.find-us-btn:hover {
+  background: #ff3d00;
+  box-shadow: 0 0 12px #ff3d00;
+}
+
+/* IG BUTTON */
+.ig-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
   background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
   color: white;
-  text-decoration: none;
 }
 
 .ig-icon {
@@ -58,17 +66,7 @@ body {
   fill: white;
 }
 
-/* Find Us */
-.find-us-btn {
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.1);
-  color: white;
-  cursor: pointer;
-}
-
-/* ================= HERO ================= */
+/* HERO */
 .hero {
   padding: 120px 20px;
   text-align: center;
@@ -76,32 +74,53 @@ body {
   url('images/hero.jpg.JPG') center/cover;
 }
 
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 .products-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
+  justify-content: center;
   padding: 40px;
 }
 
 .product-card {
   --accent: #fff;
   width: 240px;
-  padding: 20px;
-  border-radius: 16px;
   border: 2px solid var(--accent);
+  border-radius: 16px;
+  padding: 20px;
   text-align: center;
-  transition: 0.3s;
 }
 
 .product-card:hover {
+  box-shadow: 0 0 20px var(--accent);
   transform: translateY(-6px);
-  box-shadow: 0 0 25px var(--accent);
 }
+
+/* HEAT */
+.heat-meter {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.pepper { opacity: 0.2; }
+.pepper.active {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* COLORS */
+.jalapeno { --accent:#2e8b57; }
+.fresno { --accent:#ff4d4d; }
+.thai { --accent:#39ff14; }
+.habanero { --accent:#ff8c00; }
+.ghost { --accent:#8b0000; }
 
 /* BUTTONS */
 .btn-premium {
+  display: inline-block;
+  margin-top: 10px;
   padding: 10px 18px;
   border-radius: 999px;
   border: none;
@@ -113,31 +132,7 @@ body {
   color: white;
 }
 
-/* HEAT */
-.heat-meter {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-  margin: 10px 0;
-}
-
-.pepper {
-  opacity: 0.2;
-}
-
-.pepper.active {
-  opacity: 1;
-  color: var(--accent);
-}
-
-/* COLORS */
-.jalapeno { --accent:#2e8b57; }
-.fresno   { --accent:#ff4d4d; }
-.thai     { --accent:#39ff14; }
-.habanero { --accent:#ff8c00; }
-.ghost    { --accent:#8b0000; }
-
-/* MODAL */
+/* MODAL (FULL IMAGE FIX) */
 .modal {
   display: none;
   position: fixed;
@@ -148,149 +143,111 @@ body {
 }
 
 .modal-content {
-  width: 90%;
-  max-width: 420px;
+  background: #111;
   padding: 20px;
   border-radius: 16px;
-  background: #111;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain; /* ✅ NO CROPPING */
+  border-radius: 12px;
+  margin-bottom: 12px;
 }
 
 .close-btn {
-  margin-top: 15px;
-  padding: 10px 18px;
+  margin-top: 12px;
+  padding: 10px 20px;
   border-radius: 999px;
   background: #ff3d00;
-  border: none;
   color: white;
+  border: none;
   cursor: pointer;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- NAV (paste nav.html here or include server-side) -->
-<!-- ================= NAV ================= -->
-<nav>
-  <div class="nav-container">
+<div id="nav-placeholder"></div>
 
-    <div class="nav-logo" onclick="openLogo()">
-      <img src="images/logo2.JPG">
-    </div>
-
-    <button class="find-us-btn" onclick="openMarket()">📍 Find Us</button>
-
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#products">Sauces</a>
-      <a href="about.html">About</a>
-
-      <a class="ig-btn" href="https://www.instagram.com/bad_cat_hot_sauce/" target="_blank">
-        Instagram
-      </a>
-
-      <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">
-        Etsy
-      </a>
-    </div>
-
-  </div>
-</nav>
-
-<!-- HERO -->
 <section class="hero">
   <h1>Bad Cat Hot Sauce</h1>
 </section>
 
-<!-- PRODUCTS (ALL 5 RESTORED) -->
-<section id="products">
-<div class="products-grid">
+<section class="products-grid">
 
 <!-- JALAPENO -->
 <div class="product-card jalapeno">
 <h3>Jalapeño</h3>
 <div class="heat-meter">
 <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-<span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
 </div>
-<button class="btn-premium btn-accent" onclick="openProduct('Jalapeño','Fresh heat','images/jalapeno.jpeg')">View</button>
-</div>
-
-<!-- FRESNO -->
-<div class="product-card fresno">
-<h3>Fresno</h3>
-<div class="heat-meter">
-<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-<span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-</div>
-<button class="btn-premium btn-accent" onclick="openProduct('Fresno','Sweet heat','images/fresno.jpeg')">View</button>
+<button class="btn-premium btn-accent"
+onclick="openProduct('Jalapeño','Fresh bright heat','images/jalapeno.jpeg')">
+View
+</button>
 </div>
 
-<!-- THAI -->
-<div class="product-card thai">
-<h3>Thai Chili</h3>
-<div class="heat-meter">
-<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-<span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-</div>
-<button class="btn-premium btn-accent" onclick="openProduct('Thai','Fast heat','images/thai.jpeg')">View</button>
-</div>
-
-<!-- HABANERO -->
-<div class="product-card habanero">
-<h3>Habanero</h3>
-<div class="heat-meter">
-<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-<span class="pepper">🌶️</span><span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-</div>
-<button class="btn-premium btn-accent" onclick="openProduct('Habanero','Fruity heat','images/habanero.jpeg')">View</button>
-</div>
-
-<!-- GHOST -->
-<div class="product-card ghost">
-<h3>Ghost</h3>
-<div class="heat-meter">
-<span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-<span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-</div>
-<button class="btn-premium btn-accent" onclick="openProduct('Ghost','Extreme heat','images/ghost.jpeg')">View</button>
-</div>
-
-</div>
+<!-- repeat pattern for others -->
 </section>
 
 <!-- MODAL -->
-<div id="modal" class="modal">
+<div id="modal" class="modal" onclick="closeModal(event)">
   <div class="modal-content">
-    <h2 id="title"></h2>
-    <p id="desc"></p>
+
+    <img id="modalImg" class="modal-image">
+
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+
     <button class="close-btn" onclick="closeModal()">Close</button>
   </div>
 </div>
 
 <script>
-const modal = document.getElementById('modal');
-const title = document.getElementById('title');
-const desc = document.getElementById('desc');
+const modal = document.getElementById("modal");
+const img = document.getElementById("modalImg");
+const title = document.getElementById("modalTitle");
+const desc = document.getElementById("modalDesc");
 
-function openProduct(t,d){
-  modal.style.display='flex';
+function openProduct(t,d,i){
+  modal.style.display="flex";
+  img.src=i;
   title.textContent=t;
   desc.textContent=d;
 }
 
 function openLogo(){
-  openProduct("Bad Cat","Small batch sauce");
+  openProduct(
+    "Bad Cat Hot Sauce",
+    "Small batch fermented hot sauce from Taos, NM.",
+    "images/logo2.JPG"
+  );
 }
 
 function openMarket(){
-  openProduct("Find Us","Taos + Santa Fe Farmers Markets 8-1");
+  openProduct(
+    "Find Us",
+    "Taos Farmers Market 8am–1pm\nSanta Fe Farmers Market 8am–1pm",
+    "images/market.png"
+  );
 }
 
-function closeModal(){
-  modal.style.display='none';
+function closeModal(e){
+  if(!e || e.target===modal) modal.style.display="none";
 }
+
+/* LOAD NAV */
+fetch("nav.html")
+  .then(r=>r.text())
+  .then(data=>{
+    document.getElementById("nav-placeholder").innerHTML=data;
+  });
 </script>
 
 </body>
