@@ -6,7 +6,11 @@
 <title>Bad Cat Hot Sauce</title>
 
 <style>
-    /* ================= PAGE TRANSITION ================= */
+:root {
+    --accent: #ff3d00;
+}
+
+/* ================= PAGE TRANSITION ================= */
 .page-fade {
     position: fixed;
     inset: 0;
@@ -23,9 +27,6 @@ body.fade-out .page-fade {
 
 body.fade-in .page-fade {
     opacity: 0;
-}
-:root {
-    --accent: #ff3d00;
 }
 
 /* ================= HERO ================= */
@@ -47,7 +48,7 @@ body.fade-in .page-fade {
     opacity: 0.9;
 }
 
-/* ================= BUTTON BASE ================= */
+/* ================= BUTTON ================= */
 .btn-premium {
     display: inline-block;
     margin-top: 15px;
@@ -57,17 +58,12 @@ body.fade-in .page-fade {
     transition: all 0.3s ease;
 }
 
-/* ================= PRODUCT SECTION ================= */
+/* ================= PRODUCTS ================= */
 #products {
     background: #111;
     color: white;
     padding: 60px 20px;
     text-align: center;
-}
-
-.heat-legend {
-    margin-top: 10px;
-    opacity: 0.8;
 }
 
 .products-grid {
@@ -79,79 +75,20 @@ body.fade-in .page-fade {
 }
 
 .product-card {
-    --accent: #fff;
     border: 2px solid var(--accent);
     border-radius: 16px;
     padding: 20px;
     width: 260px;
     background: rgba(255,255,255,0.05);
-    transition: all 0.3s ease;
-    position: relative;
+    transition: 0.3s;
 }
 
 .product-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 0 30px var(--accent);
 }
 
-.badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--accent);
-    color: white;
-    font-size: 0.7rem;
-    padding: 4px 8px;
-    border-radius: 999px;
-}
-
-.price {
-    margin-top: 8px;
-    font-weight: bold;
-    opacity: 0.9;
-}
-
-/* ================= HEAT METER ================= */
-.heat-meter {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
-    margin: 12px 0;
-}
-
-.pepper {
-    font-size: 1rem;
-    opacity: 0.2;
-}
-
-.pepper.active {
-    opacity: 1;
-    color: var(--accent);
-    text-shadow: 0 0 6px var(--accent);
-}
-
-/* ================= COLOR SYSTEM ================= */
-.jalapeno { --accent: #2e8b57; }
-.fresno   { --accent: #ff4d4d; }
-.thai     { --accent: #39ff14; }
-.habanero { --accent: #ff8c00; }
-.ghost    { --accent: #8b0000; }
-
-.btn-accent {
-    background: var(--accent);
-    color: white;
-}
-
-.btn-accent:hover {
-    box-shadow: 0 0 20px var(--accent);
-    transform: translateY(-3px);
-}
-
-/* ================= NAVBAR ================= */
-html {
-    scroll-behavior: smooth;
-}
+/* ================= NAV ================= */
+html { scroll-behavior: smooth; }
 
 nav {
     position: sticky;
@@ -171,196 +108,79 @@ nav {
     padding: 15px 20px;
 }
 
-.nav-logo {
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
 .nav-links {
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 .nav-links a {
     color: rgba(255,255,255,0.7);
     text-decoration: none;
-    position: relative;
-    transition: 0.3s;
 }
 
 .nav-links a:hover {
     color: white;
 }
 
-.nav-links a.active {
-    color: white;
-}
-
-.nav-links a.active::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #ff3d00;
-    box-shadow: 0 0 8px #ff3d00;
+.etsy {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #f1641e;
+    text-decoration: none;
 }
 </style>
 </head>
 
 <body>
+
 <div class="page-fade"></div>
+
 <nav>
     <div class="nav-container">
-        <div class="nav-logo">Bad Cat 🔥</div>
+        <div style="color:white;font-weight:bold;">Bad Cat 🔥</div>
+
         <div class="nav-links">
-            <a href="#top" class="nav-link active">Home</a>
-            <a href="#products" class="nav-link">Sauces</a>
-            <a href="#about" class="nav-link">About</a>
+            <a href="#top">Home</a>
+            <a href="#products">Sauces</a>
+            <a href="about.html">About</a>
+
+            <a class="etsy" href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank">
+                🔶 Visit Etsy
+            </a>
         </div>
-    </div>
-        <a href="https://www.etsy.com/shop/BadCatHotSauce" target="_blank" style="margin-left:20px; display:flex; align-items:center; gap:6px; text-decoration:none; color:white;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#f1641e" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 3h18v4h-2V5H5v14h14v-2h2v4H3V3zm6 6h6v2H9V9zm0 4h6v2H9v-2z"/>
-            </svg>
-            <span style="font-size:0.9rem;">Visit our Etsy</span>
-        </a>
     </div>
 </nav>
 
-<!-- HERO -->
 <section id="top" class="hero">
     <h2>Turn Up the Heat</h2>
     <p>Small batch hot sauces. Big flavor.</p>
-    <a href="#products" class="btn-premium btn-accent">Shop Sauces</a>
+    <a href="#products" class="btn-premium">Shop Sauces</a>
 </section>
 
-<!-- PRODUCTS -->
 <section id="products">
     <h2>Our Sauces</h2>
-    <div class="heat-legend">Heat Scale: 1 → 10</div>
 
     <div class="products-grid">
-
-        <div class="product-card jalapeno">
-            <h3>Jalapeño</h3>
-            <p>Fresh, bright heat</p>
-            <div class="heat-meter" title="Scoville: 2,500–8,000">
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span>
-            </div>
-            <div>3/10</div>
-            <div class="price">$8</div>
-            <a href="/product/jalapeno.html" class="btn-premium btn-accent">Get the Heat</a>
-        </div>
-
-        <div class="product-card fresno">
-            <h3>Fresno</h3>
-            <p>Smooth, slightly sweet heat</p>
-            <div class="heat-meter" title="Scoville: 10,000–23,000">
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-            </div>
-            <div>4/10</div>
-            <div class="price">$9</div>
-            <a href="/product/fresno.html" class="btn-premium btn-accent">Get the Heat</a>
-        </div>
-
-        <div class="product-card thai">
-            <h3>Thai Chili</h3>
-            <p>Sharp, fast heat</p>
-            <div class="heat-meter" title="Scoville: 50,000–100,000">
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span>
-            </div>
-            <div>5/10</div>
-            <div class="price">$10</div>
-            <a href="/product/thai.html" class="btn-premium btn-accent">Get the Heat</a>
-        </div>
-
-        <div class="product-card habanero">
-            <h3>Habanero</h3>
-            <p>Fruity, intense heat</p>
-            <div class="heat-meter" title="Scoville: 100,000–350,000">
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-                <span class="pepper">🌶️</span>
-            </div>
-            <div>7/10</div>
-            <div class="price">$11</div>
-            <a href="/product/habanero.html" class="btn-premium btn-accent">Get the Heat</a>
-        </div>
-
-        <div class="product-card ghost">
-            <div class="badge">Most Extreme</div>
-            <h3>Ghost</h3>
-            <p>Extreme, lingering heat</p>
-            <div class="heat-meter" title="Scoville: 800,000–1,000,000">
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span><span class="pepper active">🌶️</span>
-                <span class="pepper active">🌶️</span>
-                <span class="pepper">🌶️</span><span class="pepper">🌶️</span>
-            </div>
-            <div>8/10</div>
-            <div class="price">$13</div>
-            <a href="/product/ghost.html" class="btn-premium btn-accent">Get the Heat</a>
-        </div>
-
+        <div class="product-card">Jalapeño</div>
+        <div class="product-card">Fresno</div>
+        <div class="product-card">Thai Chili</div>
+        <div class="product-card">Habanero</div>
+        <div class="product-card">Ghost</div>
     </div>
 </section>
 
 <script>
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-link");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-    });
-});
-</script>
-
-</body>
-    <script>
 document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("fade-in");
 
-    const links = document.querySelectorAll("a[href]");
-
-    links.forEach(link => {
+    document.querySelectorAll("a[href]").forEach(link => {
         const href = link.getAttribute("href");
 
-        // Only apply to internal links
         if (href && !href.startsWith("#") && !href.startsWith("http")) {
-            link.addEventListener("click", (e) => {
+            link.addEventListener("click", e => {
                 e.preventDefault();
-
-                document.body.classList.remove("fade-in");
                 document.body.classList.add("fade-out");
 
                 setTimeout(() => {
@@ -371,4 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+
+</body>
 </html>
